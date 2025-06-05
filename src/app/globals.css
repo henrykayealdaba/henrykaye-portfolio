@@ -1,0 +1,30 @@
+@import 'tailwindcss';
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+:root {
+  --light-background: #f0e7db;
+  --light-foreground: #1f1f1f;
+  --dark-background: #202023;
+  --dark-foreground: #ededed;
+  --header-light-background: #f4ede4;
+}
+
+body {
+  font-family: var(--font-m-plus-rounded), var(--font-inter), sans-serif;
+}
+
+@layer components {
+  .underline-hover {
+    @apply relative;
+  }
+
+  .underline-hover::after {
+    content: '';
+    @apply absolute -bottom-1 left-0 h-[2px] w-0 bg-black transition-all duration-150 ease-in-out;
+  }
+
+  .underline-hover:hover::after {
+    @apply w-full;
+  }
+}
