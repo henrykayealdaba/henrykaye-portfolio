@@ -21,10 +21,14 @@ body {
 
   .underline-hover::after {
     content: '';
-    @apply absolute -bottom-1 left-0 h-[2px] w-0 bg-black transition-all duration-150 ease-in-out;
+    @apply absolute -bottom-1 left-0 h-[2px] w-0 bg-[var(--light-foreground)] transition-all duration-150 ease-in-out;
   }
 
   .underline-hover:hover::after {
     @apply w-full;
+  }
+
+  .dark .underline-hover::after {
+    @apply bg-[var(--dark-foreground)];
   }
 }

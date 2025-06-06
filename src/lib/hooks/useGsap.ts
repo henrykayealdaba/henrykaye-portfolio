@@ -3,12 +3,13 @@ import gsap from 'gsap';
 
 export function useGsap(
   scopeRef: React.RefObject<HTMLElement | null>,
-  animationCallback: () => void
+  animationCallback: () => void,
+  deps: React.DependencyList = []
 ) {
   useEffect(() => {
     const ctx = gsap.context(animationCallback, scopeRef);
     return () => ctx.revert();
-  }, []);
+  }, deps);
 }
 
 // Usage Example:
