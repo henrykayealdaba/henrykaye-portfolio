@@ -59,7 +59,7 @@ export default function Header() {
   useGsapArray(refs, (elements) => {
     gsap.from(elements, {
       opacity: 0,
-      y: 30,
+      y: 20,
       stagger: 0.15,
       ease: 'bounce.out',
       duration: 1,
@@ -170,7 +170,7 @@ export default function Header() {
 
   return (
     //! Experimental Animation on Hover is commented out
-    <main className="flex items-center gap-44 px-6 py-2 backdrop-blur-sm not-dark:bg-[var(--header-light-background)] max-md:justify-between md:justify-center">
+    <main className="flex items-center gap-44 px-6 py-2 backdrop-blur-sm not-dark:bg-[var(--light-header-bg)] max-md:justify-between md:justify-center dark:bg-[var(--dark-header-bg)]">
       <div ref={kayeRef}>
         <Link
           ref={authorRef}
@@ -184,7 +184,7 @@ export default function Header() {
       </div>
       <div className="flex gap-8 max-md:hidden">
         <Link
-          className={`underline-hover font-semibold transition-colors duration-200 ease-in-out select-none hover:text-blue-600 dark:hover:text-blue-400 ${pathname === '/projects' && 'text-indigo-600 dark:text-indigo-400'}`}
+          className={`underline-hover dark:hover:text- font-semibold transition-colors duration-200 ease-in-out select-none hover:text-[var(--light-header-foreground-hover)] dark:hover:text-[var(--dark-header-foreground-hover)] ${pathname === '/projects' && 'text-[var(--light-header-foreground)] dark:text-[var(--dark-header-foreground)]'}`}
           ref={projectsRef}
           draggable={false}
           href={'/projects'}
@@ -193,7 +193,7 @@ export default function Header() {
           {/* <span className="underline-bar absolute -bottom-1 left-0 h-[2px] w-0 origin-left bg-black dark:bg-white"></span> */}
         </Link>
         <Link
-          className={`underline-hover font-semibold transition-colors duration-200 ease-in-out select-none hover:text-blue-600 dark:hover:text-blue-400 ${pathname === '/author' && 'text-indigo-600 dark:text-indigo-400'}`}
+          className={`underline-hover dark:hover:text- font-semibold transition-colors duration-200 ease-in-out select-none hover:text-[var(--light-header-foreground-hover)] dark:hover:text-[var(--dark-header-foreground-hover)] ${pathname === '/author' && 'text-[var(--light-header-foreground)] dark:text-[var(--dark-header-foreground)]'}`}
           ref={authorRef}
           draggable={false}
           href={'/author'}
@@ -202,7 +202,7 @@ export default function Header() {
           {/* <span className="underline-bar absolute -bottom-1 left-0 h-[2px] w-0 origin-left bg-black dark:bg-white"></span> */}
         </Link>
         <Link
-          className={`underline-hover font-semibold transition-colors duration-200 ease-in-out select-none hover:text-blue-600 dark:hover:text-blue-400 ${pathname === '/journal' && 'text-indigo-600 dark:text-indigo-400'}`}
+          className={`underline-hover dark:hover:text- font-semibold transition-colors duration-200 ease-in-out select-none hover:text-[var(--light-header-foreground-hover)] dark:hover:text-[var(--dark-header-foreground-hover)] ${pathname === '/journal' && 'text-[var(--light-header-foreground)] dark:text-[var(--dark-header-foreground)]'}`}
           ref={journalRef}
           draggable={false}
           href={'/journal'}
@@ -211,7 +211,7 @@ export default function Header() {
           {/* <span className="underline-bar absolute -bottom-1 left-0 h-[2px] w-0 origin-left bg-black dark:bg-white"></span> */}
         </Link>
         <Link
-          className={`underline-hover font-semibold transition-colors duration-200 ease-in-out select-none hover:text-blue-600 dark:hover:text-blue-400 ${pathname === '/3d' && 'text-indigo-600 dark:text-indigo-400'}`}
+          className={`underline-hover dark:hover:text- font-semibold transition-colors duration-200 ease-in-out select-none hover:text-[var(--light-header-foreground-hover)] dark:hover:text-[var(--dark-header-foreground-hover)] ${pathname === '/3d' && 'text-[var(--light-header-foreground)] dark:text-[var(--dark-header-foreground)]'}`}
           ref={threeDRef}
           draggable={false}
           href={'/3d'}
@@ -235,30 +235,30 @@ export default function Header() {
 
           <div
             ref={dropdownRef}
-            className={`absolute top-full right-0 mt-2 w-40 rounded bg-[var(--dark-background)]/5 p-2 pb-4 backdrop-blur-sm transition-all duration-200 ease-in-out max-md:shadow dark:bg-[var(--light-background)]/10`}
+            className={`absolute top-full right-0 mt-2 w-40 rounded bg-white p-2 pb-4 backdrop-blur-2xl transition-all duration-200 ease-in-out max-md:shadow dark:bg-[var(--light-background)]/10`}
             style={{ visibility: isOpen ? 'visible' : 'hidden' }}
           >
             <Link
               href="/projects"
-              className={`underline-hover block py-2 hover:text-blue-600 dark:hover:text-blue-400 ${pathname === '/projects' && 'text-indigo-600 dark:text-indigo-400'}`}
+              className={`underline-hover dark:hover:text- block py-2 hover:text-[var(--light-header-foreground-hover)] dark:hover:text-[var(--dark-header-foreground-hover)] ${pathname === '/projects' && 'text-[var(--light-header-foreground)] dark:text-[var(--dark-header-foreground)]'}`}
             >
               Projects
             </Link>
             <Link
               href="/author"
-              className={`underline-hover block py-2 hover:text-blue-600 dark:hover:text-blue-400 ${pathname === '/author' && 'text-indigo-600 dark:text-indigo-400'}`}
+              className={`underline-hover dark:hover:text- block py-2 hover:text-[var(--light-header-foreground-hover)] dark:hover:text-[var(--dark-header-foreground-hover)] ${pathname === '/author' && 'text-[var(--light-header-foreground)] dark:text-[var(--dark-header-foreground)]'}`}
             >
               Author
             </Link>
             <Link
               href="/journal"
-              className={`underline-hover block py-2 hover:text-blue-600 dark:hover:text-blue-400 ${pathname === '/journal' && 'text-indigo-600 dark:text-indigo-400'}`}
+              className={`underline-hover dark:hover:text- block py-2 hover:text-[var(--light-header-foreground-hover)] dark:hover:text-[var(--dark-header-foreground-hover)] ${pathname === '/journal' && 'text-[var(--light-header-foreground)] dark:text-[var(--dark-header-foreground)]'}`}
             >
               Journal
             </Link>
             <Link
               href="/3d"
-              className={`underline-hover block pt-2 hover:text-blue-600 dark:hover:text-blue-400 ${pathname === '/3d' && 'text-indigo-600 dark:text-indigo-400'}`}
+              className={`underline-hover dark:hover:text- block pt-2 hover:text-[var(--light-header-foreground-hover)] dark:hover:text-[var(--dark-header-foreground-hover)] ${pathname === '/3d' && 'text-[var(--light-header-foreground)] dark:text-[var(--dark-header-foreground)]'}`}
             >
               3D
             </Link>

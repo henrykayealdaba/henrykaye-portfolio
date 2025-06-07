@@ -3,11 +3,35 @@
 @custom-variant dark (&:where(.dark, .dark *));
 
 :root {
-  --light-background: #f0e7db;
-  --light-foreground: #1f1f1f;
-  --dark-background: #202023;
-  --dark-foreground: #ededed;
-  --header-light-background: #f4ede4;
+  /* Base Palette */
+  --color-blue-darkest: #0d2b45;
+  --color-blue-dark: #203c56;
+  --color-purple-muted: #544e68;
+  --color-purple-light: #8d697a;
+  --color-orange-dark: #d08159;
+  --color-orange: #ffaa5e;
+  --color-orange-light: #ffd4a3;
+  --color-cream: #ffecd6;
+
+  /* Light Theme */
+  --light-background: var(--color-orange-light);
+  --light-foreground: var(--color-blue-darkest);
+  --light-header-bg: var(--color-orange-dark);
+  --light-header-foreground: var(--color-orange-light);
+  --light-header-foreground-hover: var(--color-orange-light);
+  --light-card-bg: #ffffff;
+  --light-muted-text: var(--color-purple-muted);
+  --light-border: #e0dcd7;
+
+  /* Dark Theme */
+  --dark-background: var(--color-blue-darkest);
+  --dark-foreground: var(--color-cream);
+  --dark-header-bg: var(--color-blue-dark);
+  --dark-header-foreground: var(--color-orange);
+  --dark-header-foreground-hover: var(--color-orange);
+  --dark-card-bg: #1a1a1a;
+  --dark-muted-text: var(--color-purple-light);
+  --dark-border: #333333;
 }
 
 body {
@@ -21,7 +45,7 @@ body {
 
   .underline-hover::after {
     content: '';
-    @apply absolute -bottom-1 left-0 h-[2px] w-0 bg-[var(--light-foreground)] transition-all duration-150 ease-in-out;
+    @apply absolute -bottom-1 left-0 h-[2px] w-0 bg-[var(--light-header-foreground-hover)] transition-all duration-150 ease-in-out dark:bg-[var(--light-header-foreground-hover)];
   }
 
   .underline-hover:hover::after {
