@@ -1,6 +1,12 @@
 import Header from '@/components/header';
 import type { Metadata } from 'next';
-import { Inter, Geist_Mono, M_PLUS_Rounded_1c } from 'next/font/google';
+import {
+  Inter,
+  M_PLUS_Rounded_1c,
+  Anton,
+  Edu_NSW_ACT_Foundation,
+  Merriweather,
+} from 'next/font/google';
 import './globals.css';
 import { ThemeProvider } from '@/components/darkMode/darkThemeProvider';
 
@@ -16,9 +22,22 @@ const inter = Inter({
   weight: ['400', '500', '600', '700'],
 });
 
-const geistMono = Geist_Mono({
-  variable: '--font-geist-mono',
+const anton = Anton({
+  variable: '--font-anton',
   subsets: ['latin'],
+  weight: ['400'],
+});
+
+const edu = Edu_NSW_ACT_Foundation({
+  variable: '--font-edu',
+  subsets: ['latin'],
+  weight: ['400', '700'],
+});
+
+const merriweather = Merriweather({
+  variable: '--font-merriweather',
+  subsets: ['latin'],
+  weight: ['400', '700'],
 });
 
 export const metadata: Metadata = {
@@ -34,11 +53,11 @@ export default function RootLayout({
   return (
     <html lang="en" className="dark" suppressHydrationWarning>
       <body
-        className={`${mPlusRounded.variable} ${inter.variable} ${geistMono.variable} bg-[var(--light-background)] text-[var(--light-foreground)] antialiased transition-all duration-150 ease-in-out dark:bg-[var(--dark-background)] dark:text-[var(--dark-foreground)]`}
+        className={`${merriweather.variable} ${edu.variable} ${anton.variable} ${mPlusRounded.variable} ${inter.variable} bg-[var(--light-background)] text-[var(--light-foreground)] antialiased transition-all duration-150 ease-in-out dark:bg-[var(--dark-background)] dark:text-[var(--dark-foreground)]`}
       >
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
           <Header />
-          {children}
+          <div className="mt-16">{children}</div>
         </ThemeProvider>
       </body>
     </html>
