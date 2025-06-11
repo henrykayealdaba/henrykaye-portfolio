@@ -5,7 +5,7 @@ import AudioPlayer from '@/components/root/AudioPlayer';
 
 export default function AudioAndMarqueeNav() {
   return (
-    <div className="flex w-screen p-2 max-md:flex-col">
+    <div className="flex w-screen overflow-hidden p-2 max-md:flex-col">
       <div className="flex w-full items-center justify-center">
         <AudioPlayer
           picture={'duck.jpg'}
