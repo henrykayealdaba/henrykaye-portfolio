@@ -12,7 +12,7 @@ export default function AudioAndMarqueeNav() {
           audioUrl="高橋　志郎 - 午後のカフェ @ フリーBGM DOVA-SYNDROME OFFICIAL YouTube CHANNEL.mp3"
         />
       </div>
-      <div className="mt-2 flex w-full flex-col justify-between">
+      <div className="mt-2 flex w-full flex-col max-md:items-center">
         <Marquee
           content_one={
             "Hello, World! I'm an everyday individual programmer—not a professional developer—but someone who builds projects for fun and to learn new things. 🚀"

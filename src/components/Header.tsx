@@ -20,8 +20,8 @@ export default function Header() {
   const buttonRef = useRef<HTMLButtonElement>(null);
 
   // ? Create an array of refs for the links
-  const refs: React.RefObject<HTMLAnchorElement | null>[] = useMemo(
-    () => [projectsRef, authorRef, journalRef, threeDRef],
+  const refs: React.RefObject<HTMLElement>[] = useMemo(
+    () => [projectsRef, authorRef, journalRef, threeDRef] as React.RefObject<HTMLElement>[],
     []
   );
 
@@ -238,7 +238,7 @@ export default function Header() {
 
           <div
             ref={dropdownRef}
-            className={`absolute top-full right-0 mt-2 w-40 rounded bg-white p-2 pb-4 backdrop-blur-2xl transition-all duration-200 ease-in-out max-md:shadow dark:bg-[var(--light-background)]/10`}
+            className={`absolute top-full right-0 mt-2 w-40 rounded bg-white p-2 pb-4 inset-ring-1 transition-all duration-200 ease-in-out max-md:shadow dark:bg-[var(--dark-background)] dark:inset-ring-[var(--dark-header-foreground)]`}
             style={{ visibility: isOpen ? 'visible' : 'hidden' }}
           >
             <Link
