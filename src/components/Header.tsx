@@ -20,6 +20,10 @@ export default function Header() {
   const buttonRef = useRef<HTMLButtonElement>(null);
 
   // ? Create an array of refs for the links
+<<<<<<< HEAD
+=======
+ // ? Create an array of refs for the links
+>>>>>>> dcc0ec2f7e72d6811963273ec25d1d3ca7ba4c36
   const refs: React.RefObject<HTMLElement>[] = useMemo(
     () => [projectsRef, authorRef, journalRef, threeDRef] as React.RefObject<HTMLElement>[],
     []
