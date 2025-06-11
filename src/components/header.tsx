@@ -20,7 +20,10 @@ export default function Header() {
   const buttonRef = useRef<HTMLButtonElement>(null);
 
   // ? Create an array of refs for the links
-  const refs = useMemo(() => [projectsRef, authorRef, journalRef, threeDRef], []);
+  const refs: React.RefObject<HTMLAnchorElement | null>[] = useMemo(
+    () => [projectsRef, authorRef, journalRef, threeDRef],
+    []
+  );
 
   // ? Animate the Kaye word on hover
   useGsap(kayeRef, () => {

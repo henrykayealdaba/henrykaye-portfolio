@@ -2,7 +2,7 @@ import { useEffect } from 'react';
 import gsap from 'gsap';
 
 export function useGsapArray(
-  refs: React.RefObject<HTMLElement>,
+  refs: React.RefObject<HTMLElement>[],
   animationCallback: (elements: HTMLElement[]) => void
 ) {
   useEffect(() => {
