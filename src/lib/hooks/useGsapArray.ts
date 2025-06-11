@@ -7,7 +7,7 @@ export function useGsapArray(
 ) {
   useEffect(() => {
     const elements = refs.map((ref) => ref.current).filter(Boolean) as HTMLElement[];
-    console.log('useGsapArray elements:', elements);
+    // console.log('useGsapArray elements:', elements);
     if (!elements.length) return;
 
     const ctx = gsap.context(() => {
