@@ -53,7 +53,7 @@ export default function RootLayout({
   return (
     <html lang="en" className="dark" suppressHydrationWarning>
       <body
-        className={`${merriweather.variable} ${edu.variable} ${anton.variable} ${mPlusRounded.variable} ${inter.variable} w-dvw overflow-hidden bg-[var(--light-background)] text-[var(--light-foreground)] antialiased transition-all duration-150 ease-in-out dark:bg-[var(--dark-background)] dark:text-[var(--dark-foreground)]`}
+        className={`${merriweather.variable} ${edu.variable} ${anton.variable} ${mPlusRounded.variable} ${inter.variable} w-dvw overflow-x-hidden bg-[var(--light-background)] text-[var(--light-foreground)] antialiased transition-all duration-150 ease-in-out dark:bg-[var(--dark-background)] dark:text-[var(--dark-foreground)]`}
       >
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
           <Header />

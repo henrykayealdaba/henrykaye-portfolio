@@ -21,7 +21,7 @@
   --light-header-foreground-hover: var(--color-orange-light);
   --light-card-bg: #ffffff;
   --light-muted-text: var(--color-purple-muted);
-  --light-border: #e0dcd7;
+  --light-border: #333333;
 
   /* Dark Theme */
   --dark-background: var(--color-blue-darkest);
@@ -31,7 +31,7 @@
   --dark-header-foreground-hover: var(--color-orange);
   --dark-card-bg: #1a1a1a;
   --dark-muted-text: var(--color-purple-light);
-  --dark-border: #333333;
+  --dark-border: #e0dcd7;
 }
 
 body {
@@ -45,7 +45,7 @@ body {
 
   .underline-hover::after {
     content: '';
-    @apply absolute -bottom-1 left-0 h-[2px] w-0 bg-[var(--light-header-foreground-hover)] transition-all duration-150 ease-in-out dark:bg-[var(--light-header-foreground-hover)];
+    @apply absolute -bottom-1 left-0 h-[2px] w-0 bg-[var(--light-header-foreground-hover)] transition-all duration-150 ease-in-out;
   }
 
   .underline-hover:hover::after {
@@ -53,6 +53,6 @@ body {
   }
 
   .dark .underline-hover::after {
-    @apply bg-[var(--dark-foreground)];
+    @apply bg-[var(--dark-header-foreground)];
   }
 }
