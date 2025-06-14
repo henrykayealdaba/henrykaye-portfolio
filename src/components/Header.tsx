@@ -1,21 +1,21 @@
 'use client';
 import { usePathname } from 'next/navigation';
-import Link from 'next/link';
 import DarkModeButton from '@/components/darkMode/darkModeButton';
 import { useRef, useMemo, useState, useEffect } from 'react';
 import gsap from 'gsap';
 import { useGsapArray } from '@/lib/hooks/useGsapArray';
 import { Menu } from 'lucide-react';
 import { useGsap } from '@/lib/hooks/useGsap';
+import TransitionLink from '@/components/TransitionLink';
 
 export default function Header() {
   // ? Create refs for the elements I want to animate
   const kayeRef = useRef<HTMLDivElement>(null);
   const kayeWordRef = useRef<HTMLSpanElement>(null);
-  const projectsRef = useRef<HTMLAnchorElement>(null);
-  const authorRef = useRef<HTMLAnchorElement>(null);
-  const journalRef = useRef<HTMLAnchorElement>(null);
-  const threeDRef = useRef<HTMLAnchorElement>(null);
+  const projectsRef = useRef<HTMLButtonElement>(null);
+  const authorRef = useRef<HTMLButtonElement>(null);
+  const journalRef = useRef<HTMLButtonElement>(null);
+  const threeDRef = useRef<HTMLButtonElement>(null);
   const dropdownRef = useRef<HTMLDivElement>(null);
   const buttonRef = useRef<HTMLButtonElement>(null);
 
@@ -176,53 +176,58 @@ export default function Header() {
     //! Experimental Animation on Hover is commented out
     <main className="fixed top-0 right-0 left-0 z-50 flex items-center gap-44 px-6 py-2 backdrop-blur-xs not-dark:bg-[var(--light-header-bg)]/75 max-md:justify-between md:justify-center dark:bg-[var(--dark-header-bg)]">
       <div ref={kayeRef}>
-        <Link
-          ref={authorRef}
-          draggable={false}
-          href={'/'}
-          className="flex flex-col items-end text-xl leading-none font-bold uppercase select-none"
-        >
-          <span>Henry</span>
-          <span ref={kayeWordRef}>Kaye</span>
-        </Link>
+        <TransitionLink to="/">
+          <button
+            ref={authorRef}
+            draggable={false}
+            className="flex cursor-pointer flex-col items-end text-xl leading-none font-bold uppercase select-none"
+          >
+            <span>Henry</span>
+            <span ref={kayeWordRef}>Kaye</span>
+          </button>
+        </TransitionLink>
       </div>
       <div className="flex gap-8 max-md:hidden">
-        <Link
-          className={`underline-hover font-semibold transition-colors duration-200 ease-in-out select-none hover:text-[var(--light-header-foreground-hover)] dark:hover:text-[var(--dark-header-foreground-hover)] ${pathname === '/projects' && 'text-[var(--light-header-foreground)] dark:text-[var(--dark-header-foreground)]'}`}
-          ref={projectsRef}
-          draggable={false}
-          href={'/projects'}
-        >
-          Projects
-          {/* <span className="underline-bar absolute -bottom-1 left-0 h-[2px] w-0 origin-left bg-black dark:bg-white"></span> */}
-        </Link>
-        <Link
-          className={`underline-hover font-semibold transition-colors duration-200 ease-in-out select-none hover:text-[var(--light-header-foreground-hover)] dark:hover:text-[var(--dark-header-foreground-hover)] ${pathname === '/author' && 'text-[var(--light-header-foreground)] dark:text-[var(--dark-header-foreground)]'}`}
-          ref={authorRef}
-          draggable={false}
-          href={'/author'}
-        >
-          Author
-          {/* <span className="underline-bar absolute -bottom-1 left-0 h-[2px] w-0 origin-left bg-black dark:bg-white"></span> */}
-        </Link>
-        <Link
-          className={`underline-hover font-semibold transition-colors duration-200 ease-in-out select-none hover:text-[var(--light-header-foreground-hover)] dark:hover:text-[var(--dark-header-foreground-hover)] ${pathname === '/journal' && 'text-[var(--light-header-foreground)] dark:text-[var(--dark-header-foreground)]'}`}
-          ref={journalRef}
-          draggable={false}
-          href={'/journal'}
-        >
-          Journal
-          {/* <span className="underline-bar absolute -bottom-1 left-0 h-[2px] w-0 origin-left bg-black dark:bg-white"></span> */}
-        </Link>
-        <Link
-          className={`underline-hover font-semibold transition-colors duration-200 ease-in-out select-none hover:text-[var(--light-header-foreground-hover)] dark:hover:text-[var(--dark-header-foreground-hover)] ${pathname === '/3d' && 'text-[var(--light-header-foreground)] dark:text-[var(--dark-header-foreground)]'}`}
-          ref={threeDRef}
-          draggable={false}
-          href={'/3d'}
-        >
-          3D
-          {/* <span className="underline-bar absolute -bottom-1 left-0 h-[2px] w-0 origin-left bg-black dark:bg-white"></span> */}
-        </Link>
+        <TransitionLink to="/projects">
+          <button
+            className={`underline-hover cursor-pointer font-semibold transition-colors duration-200 ease-in-out select-none hover:text-[var(--light-header-foreground-hover)] dark:hover:text-[var(--dark-header-foreground-hover)] ${pathname === '/projects' && 'text-[var(--light-header-foreground)] dark:text-[var(--dark-header-foreground)]'}`}
+            ref={projectsRef}
+            draggable={false}
+          >
+            Projects
+            {/* <span className="underline-bar absolute -bottom-1 left-0 h-[2px] w-0 origin-left bg-black dark:bg-white"></span> */}
+          </button>
+        </TransitionLink>
+        <TransitionLink to="/author">
+          <button
+            className={`underline-hover cursor-pointer font-semibold transition-colors duration-200 ease-in-out select-none hover:text-[var(--light-header-foreground-hover)] dark:hover:text-[var(--dark-header-foreground-hover)] ${pathname === '/author' && 'text-[var(--light-header-foreground)] dark:text-[var(--dark-header-foreground)]'}`}
+            ref={authorRef}
+            draggable={false}
+          >
+            Author
+            {/* <span className="underline-bar absolute -bottom-1 left-0 h-[2px] w-0 origin-left bg-black dark:bg-white"></span> */}
+          </button>
+        </TransitionLink>
+        <TransitionLink to="/journal">
+          <button
+            className={`underline-hover cursor-pointer font-semibold transition-colors duration-200 ease-in-out select-none hover:text-[var(--light-header-foreground-hover)] dark:hover:text-[var(--dark-header-foreground-hover)] ${pathname === '/journal' && 'text-[var(--light-header-foreground)] dark:text-[var(--dark-header-foreground)]'}`}
+            ref={journalRef}
+            draggable={false}
+          >
+            Journal
+            {/* <span className="underline-bar absolute -bottom-1 left-0 h-[2px] w-0 origin-left bg-black dark:bg-white"></span> */}
+          </button>
+        </TransitionLink>
+        <TransitionLink to="/3d">
+          <button
+            className={`underline-hover cursor-pointer font-semibold transition-colors duration-200 ease-in-out select-none hover:text-[var(--light-header-foreground-hover)] dark:hover:text-[var(--dark-header-foreground-hover)] ${pathname === '/3d' && 'text-[var(--light-header-foreground)] dark:text-[var(--dark-header-foreground)]'}`}
+            ref={threeDRef}
+            draggable={false}
+          >
+            3D
+            {/* <span className="underline-bar absolute -bottom-1 left-0 h-[2px] w-0 origin-left bg-black dark:bg-white"></span> */}
+          </button>
+        </TransitionLink>
       </div>
       <div className="flex items-center gap-2">
         <DarkModeButton />
@@ -242,30 +247,34 @@ export default function Header() {
             className={`absolute top-full right-0 mt-2 w-40 rounded bg-white p-2 pb-4 inset-ring-1 inset-ring-[var(--light-border)] transition-all duration-200 ease-in-out max-md:shadow dark:bg-[var(--dark-background)] dark:inset-ring-[var(--dark-border)]`}
             style={{ visibility: isOpen ? 'visible' : 'hidden' }}
           >
-            <Link
-              href="/projects"
-              className={`underline-hover block py-2 hover:text-[var(--light-header-foreground-hover)] dark:hover:text-[var(--dark-header-foreground-hover)] ${pathname === '/projects' && 'text-[var(--light-header-foreground)] dark:text-[var(--dark-header-foreground)]'}`}
-            >
-              Projects
-            </Link>
-            <Link
-              href="/author"
-              className={`underline-hover block py-2 hover:text-[var(--light-header-foreground-hover)] dark:hover:text-[var(--dark-header-foreground-hover)] ${pathname === '/author' && 'text-[var(--light-header-foreground)] dark:text-[var(--dark-header-foreground)]'}`}
-            >
-              Author
-            </Link>
-            <Link
-              href="/journal"
-              className={`underline-hover block py-2 hover:text-[var(--light-header-foreground-hover)] dark:hover:text-[var(--dark-header-foreground-hover)] ${pathname === '/journal' && 'text-[var(--light-header-foreground)] dark:text-[var(--dark-header-foreground)]'}`}
-            >
-              Journal
-            </Link>
-            <Link
-              href="/3d"
-              className={`underline-hover block pt-2 hover:text-[var(--light-header-foreground-hover)] dark:hover:text-[var(--dark-header-foreground-hover)] ${pathname === '/3d' && 'text-[var(--light-header-foreground)] dark:text-[var(--dark-header-foreground)]'}`}
-            >
-              3D
-            </Link>
+            <TransitionLink to="/projects">
+              <button
+                className={`underline-hover block cursor-pointer py-2 hover:text-[var(--light-header-foreground-hover)] dark:hover:text-[var(--dark-header-foreground-hover)] ${pathname === '/projects' && 'text-[var(--light-header-foreground)] dark:text-[var(--dark-header-foreground)]'}`}
+              >
+                Projects
+              </button>
+            </TransitionLink>
+            <TransitionLink to="/author">
+              <button
+                className={`underline-hover block cursor-pointer py-2 hover:text-[var(--light-header-foreground-hover)] dark:hover:text-[var(--dark-header-foreground-hover)] ${pathname === '/author' && 'text-[var(--light-header-foreground)] dark:text-[var(--dark-header-foreground)]'}`}
+              >
+                Author
+              </button>
+            </TransitionLink>
+            <TransitionLink to="/journal">
+              <button
+                className={`underline-hover block cursor-pointer py-2 hover:text-[var(--light-header-foreground-hover)] dark:hover:text-[var(--dark-header-foreground-hover)] ${pathname === '/journal' && 'text-[var(--light-header-foreground)] dark:text-[var(--dark-header-foreground)]'}`}
+              >
+                Journal
+              </button>
+            </TransitionLink>
+            <TransitionLink to="/3d">
+              <button
+                className={`underline-hover block cursor-pointer pt-2 hover:text-[var(--light-header-foreground-hover)] dark:hover:text-[var(--dark-header-foreground-hover)] ${pathname === '/3d' && 'text-[var(--light-header-foreground)] dark:text-[var(--dark-header-foreground)]'}`}
+              >
+                3D
+              </button>
+            </TransitionLink>
           </div>
         </div>
       </div>

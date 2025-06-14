@@ -37,10 +37,6 @@ export default function AudioPlayer({ picture, audioUrl }: { picture: string; au
     };
   }, []);
 
-  useEffect(() => {
-    console.log(isPlaying);
-  }, [isPlaying]);
-
   // ? Create the tween once
   useEffect(() => {
     if (!imageRef.current) return;
