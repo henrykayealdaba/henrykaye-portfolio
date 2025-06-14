@@ -174,7 +174,7 @@ export default function Header() {
 
   return (
     //! Experimental Animation on Hover is commented out
-    <main className="fixed top-0 right-0 left-0 z-50 flex items-center gap-44 px-6 py-2 backdrop-blur-xs not-dark:bg-[var(--light-header-bg)]/75 max-md:justify-between md:justify-center dark:bg-[var(--dark-header-bg)]">
+    <main className="fixed top-0 right-0 left-0 z-50 flex w-screen items-center gap-44 px-6 py-2 backdrop-blur-xs not-dark:bg-[var(--light-header-bg)]/75 max-md:justify-between md:justify-center dark:bg-[var(--dark-header-bg)]">
       <div ref={kayeRef}>
         <TransitionLink to="/">
           <button

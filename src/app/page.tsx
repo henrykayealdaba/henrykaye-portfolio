@@ -4,7 +4,7 @@ import Hero from '@/components/root/Hero';
 import Letter from '@/components/root/Letter';
 export default function Home() {
   return (
-    <main className="w-screen">
+    <main className="">
       <div className="mb-24">
         <Hero />
         <AudioAndMarqueeNav />
@@ -12,7 +12,7 @@ export default function Home() {
       <div className="mb-24">
         <Letter />
       </div>
-      <div className="mt-48 mb-24 w-full">
+      <div className="mt-48 mb-24">
         <ComingSoon />
         <ComingSoon />
       </div>
