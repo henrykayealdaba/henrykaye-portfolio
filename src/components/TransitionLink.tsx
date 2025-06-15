@@ -50,7 +50,7 @@ export default function TransitionLink({ to, children }: { to: string; children:
   };
 
   return (
-    <a href={to} onClick={handleClick}>
+    <a href={to} onClick={handleClick} className="w-full">
       {children}
     </a>
   );

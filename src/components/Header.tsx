@@ -244,33 +244,37 @@ export default function Header() {
 
           <div
             ref={dropdownRef}
-            className={`absolute top-full right-0 mt-2 w-40 rounded bg-white p-2 pb-4 inset-ring-1 inset-ring-[var(--light-border)] transition-all duration-200 ease-in-out max-md:shadow dark:bg-[var(--dark-background)] dark:inset-ring-[var(--dark-border)]`}
+            className={`absolute top-full right-0 mt-2 w-40 rounded p-2 pb-4 inset-ring-1 inset-ring-[var(--light-border)] transition-all duration-200 ease-in-out not-dark:bg-[var(--light-header-bg)]/75 not-dark:backdrop-blur-xs max-md:shadow dark:bg-[var(--dark-background)] dark:inset-ring-[var(--dark-border)]`}
             style={{ visibility: isOpen ? 'visible' : 'hidden' }}
           >
             <TransitionLink to="/projects">
               <button
-                className={`underline-hover block cursor-pointer py-2 hover:text-[var(--light-header-foreground-hover)] dark:hover:text-[var(--dark-header-foreground-hover)] ${pathname === '/projects' && 'text-[var(--light-header-foreground)] dark:text-[var(--dark-header-foreground)]'}`}
+                onClick={() => setIsOpen(false)}
+                className={`underline-hover block w-full cursor-pointer py-2 text-start hover:text-[var(--light-header-foreground-hover)] dark:hover:text-[var(--dark-header-foreground-hover)] ${pathname === '/projects' && 'text-[var(--light-header-foreground)] dark:text-[var(--dark-header-foreground)]'}`}
               >
                 Projects
               </button>
             </TransitionLink>
             <TransitionLink to="/author">
               <button
-                className={`underline-hover block cursor-pointer py-2 hover:text-[var(--light-header-foreground-hover)] dark:hover:text-[var(--dark-header-foreground-hover)] ${pathname === '/author' && 'text-[var(--light-header-foreground)] dark:text-[var(--dark-header-foreground)]'}`}
+                onClick={() => setIsOpen(false)}
+                className={`underline-hover block w-full cursor-pointer py-2 text-start hover:text-[var(--light-header-foreground-hover)] dark:hover:text-[var(--dark-header-foreground-hover)] ${pathname === '/author' && 'text-[var(--light-header-foreground)] dark:text-[var(--dark-header-foreground)]'}`}
               >
                 Author
               </button>
             </TransitionLink>
             <TransitionLink to="/journal">
               <button
-                className={`underline-hover block cursor-pointer py-2 hover:text-[var(--light-header-foreground-hover)] dark:hover:text-[var(--dark-header-foreground-hover)] ${pathname === '/journal' && 'text-[var(--light-header-foreground)] dark:text-[var(--dark-header-foreground)]'}`}
+                onClick={() => setIsOpen(false)}
+                className={`underline-hover block w-full cursor-pointer py-2 text-start hover:text-[var(--light-header-foreground-hover)] dark:hover:text-[var(--dark-header-foreground-hover)] ${pathname === '/journal' && 'text-[var(--light-header-foreground)] dark:text-[var(--dark-header-foreground)]'}`}
               >
                 Journal
               </button>
             </TransitionLink>
             <TransitionLink to="/3d">
               <button
-                className={`underline-hover block cursor-pointer pt-2 hover:text-[var(--light-header-foreground-hover)] dark:hover:text-[var(--dark-header-foreground-hover)] ${pathname === '/3d' && 'text-[var(--light-header-foreground)] dark:text-[var(--dark-header-foreground)]'}`}
+                onClick={() => setIsOpen(false)}
+                className={`underline-hover block w-full cursor-pointer pt-2 text-start hover:text-[var(--light-header-foreground-hover)] dark:hover:text-[var(--dark-header-foreground-hover)] ${pathname === '/3d' && 'text-[var(--light-header-foreground)] dark:text-[var(--dark-header-foreground)]'}`}
               >
                 3D
               </button>

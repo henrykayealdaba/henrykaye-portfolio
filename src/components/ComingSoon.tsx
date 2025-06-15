@@ -2,7 +2,7 @@ import Marquee from '@/components/root/Marquee';
 
 export default function ComingSoon() {
   return (
-    <div className="relative flex h-[24rem] w-full items-center justify-center overflow-hidden">
+    <div className="relative flex h-[24rem] w-full items-center justify-center">
       <div className="absolute rotate-8 max-md:rotate-12">
         <Marquee
           comingSoon={true}
