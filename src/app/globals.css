@@ -39,6 +39,7 @@ body {
 }
 
 @layer components {
+  /* ? Light Underline For Darker Backgrounds */
   .underline-hover {
     @apply relative;
   }
@@ -53,6 +54,24 @@ body {
   }
 
   .dark .underline-hover::after {
+    @apply bg-[var(--dark-header-foreground)];
+  }
+
+  /* ? Black Underline For Lighter Backgrounds */
+  .black-underline-hover {
+    @apply relative;
+  }
+
+  .black-underline-hover::after {
+    content: '';
+    @apply absolute -bottom-1 left-0 h-[2px] w-0 bg-black transition-all duration-150 ease-in-out;
+  }
+
+  .black-underline-hover:hover::after {
+    @apply w-full;
+  }
+
+  .dark .black-underline-hover::after {
     @apply bg-[var(--dark-header-foreground)];
   }
 }

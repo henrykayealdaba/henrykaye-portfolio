@@ -1,10 +1,28 @@
 'use client';
-
+import { useEffect, useState } from 'react';
 import { useTheme } from 'next-themes';
-import { SunIcon, MoonIcon } from 'lucide-react';
+import { SunIcon, MoonIcon, Loader2 } from 'lucide-react';
 
 export default function ThemeToggle() {
   const { theme, setTheme } = useTheme();
+  const [mounted, setMounted] = useState(false);
+
+  // ? Prevent hydration mismatch
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
+  if (!mounted) {
+    return (
+      <button
+        disabled
+        aria-label="Loading theme"
+        className="cursor-not-allowed rounded bg-gray-300 p-2 text-gray-500 transition-all duration-150 ease-in-out"
+      >
+        <Loader2 className="animate-spin" />
+      </button>
+    );
+  }
 
   return (
     <button

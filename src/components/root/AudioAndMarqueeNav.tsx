@@ -2,7 +2,8 @@
 import Link from 'next/link';
 import Marquee from '@/components/root/Marquee';
 import AudioPlayer from '@/components/root/AudioPlayer';
-import { useEffect, useRef } from 'react';
+import Weather from '@/components/root/OpenWeatherMap';
+import { useEffect, useRef, useState } from 'react';
 import gsap from 'gsap';
 
 export default function AudioAndMarqueeNav() {
@@ -10,6 +11,14 @@ export default function AudioAndMarqueeNav() {
   const marqueeNavRef = useRef<HTMLDivElement>(null);
   const tl = gsap.timeline();
   const hasAnimated = useRef(false);
+  type WeatherType = {
+    name: string;
+    main: { temp: number };
+    weather: { description: string }[];
+  };
+  const [weather, setWeather] = useState<WeatherType | null>(null);
+
+  // ? Animate the audio player and marquee nav on mount
 
   useEffect(() => {
     if (hasAnimated.current) return;
@@ -38,43 +47,58 @@ export default function AudioAndMarqueeNav() {
     }
   }, []);
 
-  return (
-    <div className="flex w-screen overflow-hidden p-2 max-md:flex-col">
-      <div
-        ref={audioPlayerRef}
-        className="transition-left-out flex w-full items-center justify-center"
-      >
-        <AudioPlayer
-          picture={'duck.jpg'}
-          audioUrl="高橋　志郎 - 午後のカフェ @ フリーBGM DOVA-SYNDROME OFFICIAL YouTube CHANNEL.mp3"
-        />
-      </div>
-      <div
-        ref={marqueeNavRef}
-        className="transition-right-out mt-4 flex w-full flex-col max-md:items-center"
-      >
-        <Marquee
-          content_one={
-            "Hello, World! I'm an everyday individual programmer—not a professional developer—but someone who builds projects for fun and to learn new things. 🚀"
-          }
-          content_two={
-            "Hello, World! I'm an everyday individual programmer—not a professional developer—but someone who builds projects for fun and to learn new things. 🚀"
-          }
-        />
+  // ? Get today's date and format it
+  const today = new Date();
+  const formattedDate = today.toLocaleDateString('en-US', {
+    year: 'numeric',
+    month: 'long',
+    day: 'numeric',
+  });
 
-        <h1 className="max-w-lg p-2 font-(family-name:--font-inter) text-2xl max-md:text-center max-md:text-sm">
-          The personal site and portfolio of nowhere in particular web developer{' '}
-          <Link
-            href={'https://github.com/henrykayealdaba'}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="cursor-pointer hover:underline"
-          >
-            Henry Kaye
-          </Link>
-          .
-        </h1>
+  return (
+    <>
+      <Weather
+        onWeatherReady={(data: Record<string, unknown>) => {
+          setWeather(data as WeatherType);
+        }}
+      />
+      <div className="flex w-screen overflow-hidden p-2 max-md:flex-col">
+        <div
+          ref={audioPlayerRef}
+          className="transition-left-out flex w-full items-center justify-center"
+        >
+          <AudioPlayer
+            picture={'duck.jpg'}
+            audioUrl="高橋　志郎 - 午後のカフェ @ フリーBGM DOVA-SYNDROME OFFICIAL YouTube CHANNEL.mp3"
+          />
+        </div>
+        <div
+          ref={marqueeNavRef}
+          className="transition-right-out mt-4 flex w-full flex-col max-md:items-center"
+        >
+          <Marquee
+            fromX="0%"
+            toX="-34.25%"
+            duration={20}
+            content_one={`📅 Today's date is ${formattedDate} and the weather in ${weather ? weather.name : 'nowhere'}, Temp is ${weather ? weather.main.temp : 'unknown'}°C and it's ${weather ? weather.weather[0].description : 'unknown'} weather.`}
+            content_two={`🔥 This portfolio was created on May 31, 2025.  My Spotify playlist is available here: `}
+            spotifyLink="https://open.spotify.com/playlist/5uz73dZIba1HJtbhyjzGY6?si=K_g8DKLLRLGgxUF97BjhoQ"
+          />
+          {/* TODO: Change the link to something not redundancy. NOT Github tho */}
+          <h1 className="max-w-xl p-2 font-(family-name:--font-mono) text-2xl max-md:text-center max-md:text-sm">
+            The personal site and portfolio of nowhere in particular web developer{' '}
+            <Link
+              href={'https://github.com/henrykayealdaba'}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="cursor-pointer hover:underline"
+            >
+              Henry Kaye
+            </Link>
+            .
+          </h1>
+        </div>
       </div>
-    </div>
+    </>
   );
 }

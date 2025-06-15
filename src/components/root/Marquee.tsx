@@ -1,6 +1,7 @@
 'use client';
 import { useRef, useEffect } from 'react';
 import gsap from 'gsap';
+import Link from 'next/link';
 
 export default function Marquee({
   content_one,
@@ -10,6 +11,7 @@ export default function Marquee({
   toX = '-51.7%',
   duration = 30,
   comingSoon = false,
+  spotifyLink,
 }: {
   content_one: string;
   content_two: string;
@@ -18,6 +20,7 @@ export default function Marquee({
   toX?: string;
   duration?: number;
   comingSoon?: boolean;
+  spotifyLink?: string;
 }) {
   const marqueeRef = useRef<HTMLDivElement>(null);
   const timeline = useRef<gsap.core.Tween | null>(null);
@@ -63,11 +66,49 @@ export default function Marquee({
         className={`flex w-max space-x-44 py-2 ${comingSoon ? 'font-bold' : 'font-mono'} text-nowrap`}
       >
         <span>{content_one}</span>
-        <span>{content_two}</span>
+        <span className="flex space-x-2">
+          {content_two}
+          {spotifyLink && (
+            <Link
+              target="_blank"
+              rel="noopener noreferrer"
+              href={spotifyLink}
+              className="black-underline-hover text-emerald-500"
+            >
+              Spotify Playlist
+            </Link>
+          )}
+        </span>
+
         <span>{content_one}</span>
-        <span>{content_two}</span>
+        <span className="flex space-x-2">
+          {content_two}{' '}
+          {spotifyLink && (
+            <Link
+              target="_blank"
+              rel="noopener noreferrer"
+              href={spotifyLink}
+              className="black-underline-hover text-emerald-500"
+            >
+              Spotify Playlist
+            </Link>
+          )}
+        </span>
+
         <span>{content_one}</span>
-        <span>{content_two}</span>
+        <span className="flex space-x-2">
+          {content_two}{' '}
+          {spotifyLink && (
+            <Link
+              target="_blank"
+              rel="noopener noreferrer"
+              href={spotifyLink}
+              className="black-underline-hover text-emerald-500"
+            >
+              Spotify Playlist
+            </Link>
+          )}
+        </span>
       </div>
     </div>
   );
