@@ -13,7 +13,29 @@ export default function TransitionLink({ to, children }: { to: string; children:
     // ? 📝 Return immediately if already on the target route
     if (pathname === to) return;
 
-    // ? 👉 Animate out elements before leaving
+    // ? 👉 Function that check if elements are visible before navigating
+    const isVisible = (selector: string) => {
+      const element = document.querySelector(selector);
+      if (!element) return false;
+      const rect = element.getBoundingClientRect();
+      return (
+        rect.top >= 0 &&
+        rect.left >= 0 &&
+        rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
+        rect.right <= (window.innerWidth || document.documentElement.clientWidth)
+      );
+    };
+
+    if (
+      !isVisible('.hero-char') &&
+      !isVisible('.transition-left-out') &&
+      !isVisible('.transition-right-out')
+    ) {
+      router.push(to);
+      return;
+    }
+
+    // ? 👉 Animate out elements before leaving when it is visible
     const tl = gsap.timeline();
 
     tl.to('.hero-char', {
