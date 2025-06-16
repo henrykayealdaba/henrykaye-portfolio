@@ -12,7 +12,6 @@ export default function Weather({
       const { latitude, longitude } = position.coords;
 
       const apiKey = process.env.NEXT_PUBLIC_WEATHER_API_KEY;
-      console.log('API Key:', apiKey);
       if (!apiKey) {
         console.error('Weather API key is not set');
         return;

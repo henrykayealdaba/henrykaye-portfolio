@@ -74,4 +74,14 @@ body {
   .dark .black-underline-hover::after {
     @apply bg-[var(--dark-header-foreground)];
   }
+
+  .line-beside::after {
+    content: '';
+    @apply inline-block h-[0.5rem] rounded bg-[var(--light-foreground)];
+    width: var(--after-width, 0%);
+  }
+
+  .dark .line-beside::after {
+    @apply bg-[var(--dark-foreground)];
+  }
 }

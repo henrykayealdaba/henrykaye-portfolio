@@ -34,7 +34,6 @@ export default function Hero() {
   }, []);
 
   return (
-    //TODO: Animation of this using GSAP
     <div className="flex flex-col justify-center">
       <span
         ref={span1Ref}

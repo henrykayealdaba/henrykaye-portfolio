@@ -1,4 +1,7 @@
 'use client';
+import gsap from 'gsap';
+import { useEffect } from 'react';
+import { ScrollTrigger, ScrollSmoother } from 'gsap/all';
 import { Facebook, Github, Instagram, Linkedin, Mail, ArrowRight } from 'lucide-react';
 import { useTheme } from 'next-themes';
 import Image from 'next/image';
@@ -7,12 +10,31 @@ import Link from 'next/link';
 export default function AboutTheAuthor() {
   const { theme, resolvedTheme } = useTheme();
   const isDarkMode = theme === 'dark' || resolvedTheme === 'dark';
-  // TODO: Add animation to The Author text h1 section
+
+  useEffect(() => {
+    gsap.registerPlugin(ScrollTrigger, ScrollSmoother);
+    gsap.to('.line-beside', {
+      scrollTrigger: {
+        trigger: '.line-beside',
+        start: 'top 90%',
+        end: 'bottom -20%',
+        scrub: 2,
+      },
+      css: { '--after-width': '100%' },
+      duration: 5,
+      ease: 'power1.inOut',
+    });
+  }, []);
+
   return (
     <div className="space-y-4">
-      <h1 className="border-t-2 p-4 font-(family-name:--font-anton) text-9xl font-bold uppercase">
+      <h1
+        className="line-beside relative inline-flex w-full items-center gap-2 p-4 font-(family-name:--font-anton) text-9xl font-bold text-nowrap uppercase max-lg:text-8xl max-md:text-6xl max-sm:text-5xl"
+        style={{ ['--after-width' as string]: '0%' } as React.CSSProperties}
+      >
         The Author
       </h1>
+
       <Marquee
         content_one={
           "Hello, World! I'm an everyday individual programmer—not a professional developer—but someone who builds projects for fun and to learn new things. 🚀"
