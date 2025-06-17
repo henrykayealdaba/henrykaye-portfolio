@@ -37,10 +37,10 @@ export default function AboutTheAuthor() {
 
       <Marquee
         content_one={
-          "Hello, World! I'm an everyday individual programmer—not a professional developer—but someone who builds projects for fun and to learn new things. 🚀"
+          "Hello World!🌏 I'm an everyday individual programmer—not a professional developer—but someone who builds projects for fun and to learn new things. 🚀"
         }
         content_two={
-          "Hello, World! I'm an everyday individual programmer—not a professional developer—but someone who builds projects for fun and to learn new things. 🚀"
+          "Hello World!🌏 I'm an everyday individual programmer—not a professional developer—but someone who builds projects for fun and to learn new things. 🚀"
         }
       />
       <div className="flex flex-row items-center px-24 max-lg:flex-col">

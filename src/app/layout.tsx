@@ -7,6 +7,7 @@ import {
   Edu_NSW_ACT_Foundation,
   Merriweather,
   Cinzel,
+  Playfair_Display,
 } from 'next/font/google';
 import './globals.css';
 import { ThemeProvider } from '@/components/darkMode/darkThemeProvider';
@@ -47,6 +48,12 @@ const cinzel = Cinzel({
   weight: ['400'],
 });
 
+const playfair = Playfair_Display({
+  variable: '--font-playfair',
+  subsets: ['latin'],
+  weight: ['400', '700'],
+});
+
 export const metadata: Metadata = {
   title: 'Henry Kaye From Online',
   description: 'The personal site & portfolio of nowhere in particular web developer Henry Kaye.',
@@ -60,7 +67,7 @@ export default function RootLayout({
   return (
     <html lang="en" className="dark" suppressHydrationWarning>
       <body
-        className={`${merriweather.variable} ${edu.variable} ${anton.variable} ${mPlusRounded.variable} ${inter.variable} ${cinzel.variable} w-screen overflow-x-hidden bg-[var(--light-background)] text-[var(--light-foreground)] antialiased transition-all duration-150 ease-in-out dark:bg-[var(--dark-background)] dark:text-[var(--dark-foreground)]`}
+        className={`${merriweather.variable} ${edu.variable} ${anton.variable} ${mPlusRounded.variable} ${inter.variable} ${cinzel.variable} ${playfair.variable} w-screen overflow-x-hidden bg-[var(--light-background)] text-[var(--light-foreground)] antialiased transition-all duration-150 ease-in-out dark:bg-[var(--dark-background)] dark:text-[var(--dark-foreground)]`}
       >
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
           <Header />
