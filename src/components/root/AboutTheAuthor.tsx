@@ -1,6 +1,6 @@
 'use client';
 import gsap from 'gsap';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import {
   Facebook,
@@ -19,6 +19,7 @@ import Link from 'next/link';
 export default function AboutTheAuthor() {
   const { theme, resolvedTheme } = useTheme();
   const isDarkMode = theme === 'dark' || resolvedTheme === 'dark';
+  const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
     gsap.registerPlugin(ScrollTrigger);
@@ -33,6 +34,10 @@ export default function AboutTheAuthor() {
       duration: 5,
       ease: 'power1.inOut',
     });
+  }, []);
+
+  useEffect(() => {
+    setMounted(true);
   }, []);
 
   return (
@@ -80,12 +85,14 @@ export default function AboutTheAuthor() {
           </Link>
         </div>
         <div className="flex flex-1 flex-col items-center justify-center">
-          <Image
-            src={`/image/GIF/${isDarkMode ? 'Dark.gif' : 'Star.gif'}`}
-            alt="Henry Kaye"
-            width={200}
-            height={200}
-          />
+          {mounted && (
+            <Image
+              src={`/image/GIF/${isDarkMode ? 'Dark.gif' : 'Star.gif'}`}
+              alt="Henry Kaye"
+              width={200}
+              height={200}
+            />
+          )}
           <div className="space-y-4 rounded-2xl border-2 px-24 py-8">
             <h1 className="text-xl uppercase opacity-50">Somewhere</h1>
             <ul className="space-y-2">
