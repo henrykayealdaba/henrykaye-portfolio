@@ -1,7 +1,7 @@
 'use client';
 import gsap from 'gsap';
 import { useEffect } from 'react';
-import { ScrollTrigger, ScrollSmoother } from 'gsap/all';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import {
   Facebook,
   Github,
@@ -10,7 +10,7 @@ import {
   Mail,
   ArrowRight,
   Newspaper,
-  FileText,
+  PartyPopper,
 } from 'lucide-react';
 import { useTheme } from 'next-themes';
 import Image from 'next/image';
@@ -21,7 +21,7 @@ export default function AboutTheAuthor() {
   const isDarkMode = theme === 'dark' || resolvedTheme === 'dark';
 
   useEffect(() => {
-    gsap.registerPlugin(ScrollTrigger, ScrollSmoother);
+    gsap.registerPlugin(ScrollTrigger);
     gsap.to('.line-beside', {
       scrollTrigger: {
         trigger: '.line-beside',
@@ -69,7 +69,8 @@ export default function AboutTheAuthor() {
           <p className="max-md:text-md px-2 text-2xl leading-tight text-pretty max-xl:text-xl max-lg:text-lg max-md:w-md max-sm:w-sm max-sm:text-sm">
             <span className="flex items-center text-2xl italic opacity-50">NOW</span>
             This year I will graduate from college with a degree in Information Technology. Wish me
-            luck on my journey to becoming a professional developer!
+            luck on my journey to becoming a professional developer!{' '}
+            <PartyPopper className="inline font-bold dark:stroke-[var(--color-orange)]" />
           </p>
           <Link
             href={'/author'}

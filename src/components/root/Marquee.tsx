@@ -75,7 +75,7 @@ export default function Marquee({
               href={spotifyLink}
               className="black-underline-hover text-emerald-500"
             >
-              Spotify Playlist
+              &nbsp;Spotify Playlist&nbsp;
             </Link>
           )}
         </span>
@@ -90,7 +90,7 @@ export default function Marquee({
               href={spotifyLink}
               className="black-underline-hover text-emerald-500"
             >
-              Spotify Playlist
+              &nbsp;Spotify Playlist&nbsp;
             </Link>
           )}
         </span>
@@ -105,7 +105,7 @@ export default function Marquee({
               href={spotifyLink}
               className="black-underline-hover text-emerald-500"
             >
-              Spotify Playlist
+              &nbsp;Spotify Playlist&nbsp;
             </Link>
           )}
         </span>

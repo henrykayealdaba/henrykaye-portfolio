@@ -4,7 +4,7 @@ import ArticleIII from '@/components/root/ArticleIII';
 
 export default function Article() {
   return (
-    <div className="flex flex-col items-center justify-center">
+    <div className="my-40 flex flex-col items-center justify-center max-md:my-20">
       <div className="max-w-3xl space-y-12">
         {/* ? First Article */}
         <ArticleI />

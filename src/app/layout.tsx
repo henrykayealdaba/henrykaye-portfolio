@@ -1,4 +1,5 @@
 import Header from '@/components/Header';
+import Footer from '@/components/Footer';
 import type { Metadata } from 'next';
 import {
   Inter,
@@ -72,6 +73,7 @@ export default function RootLayout({
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
           <Header />
           <div className="mt-16">{children}</div>
+          <Footer />
         </ThemeProvider>
       </body>
     </html>
