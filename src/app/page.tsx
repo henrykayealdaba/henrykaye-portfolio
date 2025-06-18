@@ -6,7 +6,9 @@ import Letter from '@/components/root/Letter';
 import Articles from '@/components/root/Articles';
 export default function Home() {
   return (
-    // TODO: Add more articles and content about the title "Terrifying Truth of a Stagnant Individual" and put it above the about the author section.
+    // TODO: Add a fade in animation for the Letter section
+    // TODO: Add more animation in articles section
+    // TODO: Add a footer section, social media links etc. Check inspiration
     <main className="w-full overflow-x-hidden">
       <div className="mb-6">
         <Hero />

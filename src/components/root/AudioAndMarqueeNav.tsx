@@ -1,5 +1,4 @@
 'use client';
-import Link from 'next/link';
 import Marquee from '@/components/root/Marquee';
 import AudioPlayer from '@/components/root/AudioPlayer';
 import Weather from '@/components/root/OpenWeatherMap';
@@ -84,17 +83,16 @@ export default function AudioAndMarqueeNav() {
             content_two={`🔥 This portfolio was created on May 31, 2025.  My Spotify playlist is available here: `}
             spotifyLink="https://open.spotify.com/playlist/5uz73dZIba1HJtbhyjzGY6?si=K_g8DKLLRLGgxUF97BjhoQ"
           />
-          {/* TODO: Change the link to something not redundancy. NOT Github tho */}
-          <h1 className="max-w-xl p-2 font-(family-name:--font-mono) text-2xl max-md:text-center max-md:text-sm">
+          <h1 className="max-md:text-md max-md:text-md max-w-xl p-2 font-(family-name:--font-mono) text-2xl max-xl:text-xl max-lg:text-lg max-md:text-center max-sm:text-sm lg:mr-72 lg:self-end lg:text-right">
             The personal site and portfolio of nowhere in particular web developer{' '}
-            <Link
-              href={'https://github.com/henrykayealdaba'}
+            <a
+              href={'/file/Henry Kaye Aldaba Resume.pdf'}
               target="_blank"
               rel="noopener noreferrer"
               className="cursor-pointer hover:underline"
             >
               Henry Kaye
-            </Link>
+            </a>
             .
           </h1>
         </div>

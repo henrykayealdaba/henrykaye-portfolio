@@ -22,12 +22,14 @@ export default function ArticleIII() {
       </p>
 
       <div className="mt-4 flex items-center justify-center space-x-2 px-6 font-(family-name:--font-playfair) text-base leading-relaxed text-pretty">
-        <span className="max-md:text-md font-(family-name:--font-cinzel) text-3xl font-light max-xl:text-xl max-lg:text-lg max-sm:text-sm">
-          WHO
-        </span>
-        <span className="max-md:text-md font-(family-name:--font-cinzel) text-3xl font-light max-xl:text-xl max-lg:text-lg max-sm:text-sm">
-          WHY
-        </span>
+        <div className="flex space-x-2 max-md:flex-col max-md:space-y-2">
+          <span className="max-md:text-md font-(family-name:--font-cinzel) text-3xl font-light max-xl:text-xl max-lg:text-lg max-sm:text-sm">
+            WHO
+          </span>
+          <span className="max-md:text-md font-(family-name:--font-cinzel) text-3xl font-light max-xl:text-xl max-lg:text-lg max-sm:text-sm">
+            WHY
+          </span>
+        </div>
         <div className="flex flex-col items-center font-(family-name:--font-cinzel) text-xl font-light">
           <span className="leading-none font-bold">H</span>
           <span className="leading-none font-bold">O</span>
@@ -45,12 +47,14 @@ export default function ArticleIII() {
           <span className="leading-none font-bold">A</span>
           <span className="leading-none font-bold">T</span>
         </div>
-        <span className="max-md:text-md font-(family-name:--font-cinzel) text-3xl font-light max-xl:text-xl max-lg:text-lg max-sm:text-sm">
-          WHEN
-        </span>
-        <span className="max-md:text-md font-(family-name:--font-cinzel) text-3xl font-light max-xl:text-xl max-lg:text-lg max-sm:text-sm">
-          WHERE
-        </span>
+        <div className="flex space-x-2 max-md:flex-col max-md:space-y-2">
+          <span className="max-md:text-md font-(family-name:--font-cinzel) text-3xl font-light max-xl:text-xl max-lg:text-lg max-sm:text-sm">
+            WHEN
+          </span>
+          <span className="max-md:text-md font-(family-name:--font-cinzel) text-3xl font-light max-xl:text-xl max-lg:text-lg max-sm:text-sm">
+            WHERE
+          </span>
+        </div>
       </div>
 
       <p className="mt-4 px-6 font-(family-name:--font-playfair) text-base leading-relaxed text-pretty">

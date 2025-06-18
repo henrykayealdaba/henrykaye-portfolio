@@ -2,7 +2,16 @@
 import gsap from 'gsap';
 import { useEffect } from 'react';
 import { ScrollTrigger, ScrollSmoother } from 'gsap/all';
-import { Facebook, Github, Instagram, Linkedin, Mail, ArrowRight } from 'lucide-react';
+import {
+  Facebook,
+  Github,
+  Instagram,
+  Linkedin,
+  Mail,
+  ArrowRight,
+  Newspaper,
+  FileText,
+} from 'lucide-react';
 import { useTheme } from 'next-themes';
 import Image from 'next/image';
 import Marquee from '@/components/root/Marquee';
@@ -79,6 +88,17 @@ export default function AboutTheAuthor() {
           <div className="space-y-4 rounded-2xl border-2 px-24 py-8">
             <h1 className="text-xl uppercase opacity-50">Somewhere</h1>
             <ul className="space-y-2">
+              <li className="flex space-x-2">
+                <Newspaper />
+                <a
+                  href={'/file/Henry Kaye Aldaba Resume.pdf'}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="black-underline-hover text-lg"
+                >
+                  Resume
+                </a>
+              </li>
               <li className="flex space-x-2">
                 <Github />
                 <Link
