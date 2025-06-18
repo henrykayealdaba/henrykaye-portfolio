@@ -59,7 +59,7 @@ export default function AboutTheAuthor() {
       />
       <div className="flex flex-row items-center px-24 max-lg:flex-col">
         <div className="flex-1 space-y-4 px-24">
-          <p className="max-md:text-md px-2 text-2xl leading-tight text-pretty max-xl:text-xl max-lg:text-lg max-md:w-md max-sm:w-sm max-sm:text-sm">
+          <p className="max-md:text-md px-2 text-2xl leading-tight text-pretty max-xl:text-xl max-lg:text-lg max-md:w-md max-md:px-8 max-sm:w-sm max-sm:text-sm">
             I am{' '}
             <span className="font-bold text-[var(--light-foreground)] dark:text-[var(--color-orange)]">
               Henry Kaye
@@ -67,11 +67,11 @@ export default function AboutTheAuthor() {
             , a web developer from nowhere in particular
             <span className="italic opacity-50">(Kidding haha, laugh people)</span>
           </p>
-          <p className="max-md:text-md px-2 text-2xl leading-tight text-pretty max-xl:text-xl max-lg:text-lg max-md:w-md max-sm:w-sm max-sm:text-sm">
+          <p className="max-md:text-md px-2 text-2xl leading-tight text-pretty max-xl:text-xl max-lg:text-lg max-md:w-md max-md:px-8 max-sm:w-sm max-sm:text-sm">
             From The Philippines. Mostly a self-taught programmer who enjoys fun projects and
             learning new things.
           </p>
-          <p className="max-md:text-md px-2 text-2xl leading-tight text-pretty max-xl:text-xl max-lg:text-lg max-md:w-md max-sm:w-sm max-sm:text-sm">
+          <p className="max-md:text-md px-2 text-2xl leading-tight text-pretty max-xl:text-xl max-lg:text-lg max-md:w-md max-md:px-8 max-sm:w-sm max-sm:text-sm">
             <span className="flex items-center text-2xl italic opacity-50">NOW</span>
             This year I will graduate from college with a degree in Information Technology. Wish me
             luck on my journey to becoming a professional developer!{' '}
@@ -79,7 +79,7 @@ export default function AboutTheAuthor() {
           </p>
           <Link
             href={'/author'}
-            className="max-md:text-md black-underline-hover inline cursor-pointer px-2 text-2xl leading-tight text-pretty max-xl:text-xl max-lg:text-lg max-md:w-md max-sm:w-sm max-sm:text-sm"
+            className="max-md:text-md black-underline-hover inline cursor-pointer px-2 text-2xl leading-tight text-pretty max-xl:text-xl max-lg:text-lg max-md:w-md max-md:px-8 max-sm:w-sm max-sm:text-sm"
           >
             Look more here <ArrowRight className="inline" />{' '}
           </Link>
