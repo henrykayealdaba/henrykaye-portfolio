@@ -126,7 +126,7 @@ export default function ArticleII() {
         }}
         className="mt-4 px-6 font-(family-name:--font-playfair) text-base leading-relaxed text-pretty first-letter:float-left first-letter:mt-1 first-letter:mr-1 first-letter:text-6xl first-letter:leading-[1]"
       >
-        People often dream of getting something anything and they hold onto that dream. Some
+        People often dream of getting something anything and they hold onto that dream. Some may
         suddenly feel motivated and want to change. But the biggest obstacle is always the same:
       </p>
       <div
