@@ -28,7 +28,7 @@ export default function ArticleIII() {
       }
 
       const paragraphs = paragraphRefs.current;
-      gsap.from(paragraphs.slice(0, 3), {
+      gsap.from(paragraphs.slice(0, 2), {
         scrollTrigger: {
           trigger: paragraphs[0],
           start: 'top 100%',
@@ -41,7 +41,7 @@ export default function ArticleIII() {
         duration: 1,
       });
 
-      gsap.from(paragraphs.slice(3), {
+      gsap.from(paragraphs.slice(2), {
         scrollTrigger: {
           trigger: lastParagraphRef.current,
           start: 'top 100%',
@@ -103,18 +103,6 @@ export default function ArticleIII() {
         <span className="underline">clear.</span> Don&#39;t mumble through your dreams. Don&#39;t
         whisper your desires. Say what you want, and say it specifically:
       </p>
-      <p
-        ref={(el) => {
-          paragraphRefs.current[2] = el || null;
-        }}
-        className="mt-4 px-6 font-(family-name:--font-playfair) text-base leading-relaxed text-pretty"
-      >
-        This is one of the main reasons why millionaires and billionaires remain the only ones at
-        the top. If all the wealth in the world were divided equally, it would eventually end up
-        back in the same hands. There&#39;s no secret to it. Anyone can change and rise. Wealth
-        isn&#39;t just about money it&#39;s about mindset, habits, skills, and discipline. Success
-        is always available. You just need to reach for it.
-      </p>
       <div
         ref={questionRowRef}
         className="mt-4 flex items-center justify-center space-x-2 px-6 font-(family-name:--font-playfair) text-base leading-relaxed text-pretty"
@@ -156,7 +144,7 @@ export default function ArticleIII() {
       <div ref={lastParagraphRef}>
         <p
           ref={(el) => {
-            paragraphRefs.current[3] = el || null;
+            paragraphRefs.current[2] = el || null;
           }}
           className="mt-4 px-6 font-(family-name:--font-playfair) text-base leading-relaxed text-pretty"
         >
@@ -165,7 +153,7 @@ export default function ArticleIII() {
         </p>
         <p
           ref={(el) => {
-            paragraphRefs.current[4] = el || null;
+            paragraphRefs.current[3] = el || null;
           }}
           className="mt-4 px-6 font-(family-name:--font-playfair) text-base leading-relaxed text-pretty"
         >
@@ -174,7 +162,7 @@ export default function ArticleIII() {
         </p>
         <p
           ref={(el) => {
-            paragraphRefs.current[5] = el || null;
+            paragraphRefs.current[4] = el || null;
           }}
           className="mt-4 px-6 font-(family-name:--font-playfair) text-base leading-relaxed text-pretty"
         >
@@ -183,7 +171,7 @@ export default function ArticleIII() {
         </p>
         <p
           ref={(el) => {
-            paragraphRefs.current[6] = el || null;
+            paragraphRefs.current[5] = el || null;
           }}
           className="mt-4 px-6 font-(family-name:--font-playfair) text-base leading-relaxed text-pretty"
         >
@@ -193,7 +181,7 @@ export default function ArticleIII() {
         </p>
         <p
           ref={(el) => {
-            paragraphRefs.current[7] = el || null;
+            paragraphRefs.current[6] = el || null;
           }}
           className="mt-4 px-6 font-(family-name:--font-playfair) text-base leading-relaxed text-pretty"
         >
@@ -203,7 +191,7 @@ export default function ArticleIII() {
         </p>
         <p
           ref={(el) => {
-            paragraphRefs.current[8] = el || null;
+            paragraphRefs.current[7] = el || null;
           }}
           className="mt-4 px-6 font-(family-name:--font-playfair) text-base leading-relaxed text-pretty"
         >
@@ -212,7 +200,7 @@ export default function ArticleIII() {
         </p>
         <p
           ref={(el) => {
-            paragraphRefs.current[9] = el || null;
+            paragraphRefs.current[8] = el || null;
           }}
           className="mt-4 px-6 font-(family-name:--font-playfair) text-base leading-relaxed text-pretty underline"
         >
