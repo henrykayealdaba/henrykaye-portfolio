@@ -2,9 +2,9 @@ import ComingSoon from '@/components/ComingSoon';
 
 export default function Author() {
   return (
-    <main className="flex w-screen flex-col items-center justify-center space-y-32">
-      <p>THIS IS THE AUTHOR PAGE 👤</p>
-      <div className="mb-24">
+    <main className="overflow-x-hidden">
+      <p className="text-center">THIS IS THE AUTHOR PAGE 👤</p>
+      <div className="mb-6">
         <ComingSoon />
         <ComingSoon />
       </div>
