@@ -7,7 +7,7 @@ export default function Hero() {
   gsap.registerPlugin(SplitText);
 
   const span1Ref = useRef<HTMLSpanElement>(null);
-  const span3Ref = useRef<HTMLSpanElement>(null);
+  const span2Ref = useRef<HTMLSpanElement>(null);
   const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
@@ -16,35 +16,50 @@ export default function Hero() {
 
   // ? Animate Hero from the start (or reload)
   useEffect(() => {
-    if (mounted && span1Ref.current && span3Ref.current) {
+    if (mounted && span1Ref.current && span2Ref.current) {
+      const tl = gsap.timeline();
       const split1 = new SplitText(span1Ref.current, {
         type: 'chars',
-        charsClass: 'projects-hero-char',
+        charsClass: 'projects-hero-char-1',
         mask: 'chars',
         aria: 'none',
       });
-      const split3 = new SplitText(span3Ref.current, {
+      const split2 = new SplitText(span2Ref.current, {
         type: 'chars',
-        charsClass: 'projects-hero-char',
+        charsClass: 'projects-hero-char-2',
         mask: 'chars',
         aria: 'none',
       });
 
-      gsap.from([...split1.chars, ...split3.chars], {
+      tl.from([...split1.chars], {
         opacity: 0,
         yPercent: 100,
+        ease: 'expo.inOut',
         stagger: {
           each: 0.2,
-          amount: 0.5,
+          amount: 0.2,
           from: 'start',
         },
         duration: 0.8,
-        ease: 'expo.inOut',
-      });
+      }).from(
+        [...split2.chars],
+        {
+          opacity: 0,
+          yPercent: 100,
+          ease: 'expo.inOut',
+          stagger: {
+            each: 0.2,
+            amount: 0.2,
+            from: 'start',
+          },
+          duration: 0.8,
+        },
+        '<0.3'
+      );
 
       return () => {
         split1.revert();
-        split3.revert();
+        split2.revert();
       };
     }
   }, [mounted]);
@@ -59,10 +74,12 @@ export default function Hero() {
       </span>
 
       <span
-        ref={span3Ref}
-        className="text-left font-(family-name:--font-edu) text-[clamp(0.2rem,6.3vw,4rem)] leading-none text-nowrap uppercase"
+        ref={span2Ref}
+        className="font-(family-name:--font-edu) text-[clamp(0.2rem,6.3vw,4rem)] leading-none text-nowrap uppercase"
       >
-        From a duck <br /> with Wi-Fi
+        <span className="block max-md:text-center">Made with code,</span>
+        <span className="block max-md:text-center">caffeine,</span>
+        <span className="block max-md:text-center">and confusion</span>
       </span>
     </div>
   );

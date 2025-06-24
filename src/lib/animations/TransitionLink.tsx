@@ -94,7 +94,7 @@ export default function TransitionLink({ to, children }: { to: string; children:
 
     // ? Animate projects page hero characters and transitions
     if (isProjectsHero || isProjectsTransitionLeft || isProjectsTransitionRight) {
-      tl.to('.projects-hero-char', {
+      tl.to('.projects-hero-char-1', {
         opacity: 0,
         yPercent: 100,
         ease: 'expo.inOut',
@@ -105,6 +105,21 @@ export default function TransitionLink({ to, children }: { to: string; children:
         },
         duration: 0.8,
       })
+        .to(
+          '.projects-hero-char-2',
+          {
+            yPercent: -100,
+            opacity: 0,
+            duration: 0.8,
+            stagger: {
+              each: 0.2,
+              amount: 0.5,
+              from: 'end',
+            },
+            ease: 'expo.inOut',
+          },
+          '<'
+        )
         .to(
           '.projects-transition-left-out',
           {
