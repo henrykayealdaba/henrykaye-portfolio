@@ -93,10 +93,10 @@ export default function AudioPlayer({ picture, audioUrl }: { picture: string; au
   };
 
   return (
-    <div className="relative">
+    <div className="relative z-10">
       <div className="absolute bottom-0 left-0 h-[7.15rem] w-[18.2rem] -translate-x-1 translate-y-1 rounded bg-amber-700 inset-ring-1 inset-ring-[var(--light-border)] max-md:h-[6.95rem] max-md:w-[30.8rem] max-sm:w-full dark:bg-[var(--dark-header-bg)] dark:inset-ring-[var(--dark-border)]" />
 
-      <div className="transition-color flex w-72 items-center space-x-4 rounded bg-[var(--light-header-bg)]/75 p-4 shadow-lg inset-ring-1 inset-ring-[var(--light-border)] backdrop-blur-xs max-md:w-full max-md:justify-center dark:bg-[var(--dark-header-bg)] dark:inset-ring-[var(--dark-border)]">
+      <div className="transition-color flex w-72 items-center space-x-4 overflow-hidden rounded bg-[var(--light-header-bg)]/75 p-4 shadow-lg inset-ring-1 inset-ring-[var(--light-border)] backdrop-blur-xs max-md:w-full max-md:justify-center dark:bg-[var(--dark-header-bg)] dark:inset-ring-[var(--dark-border)]">
         <Image
           ref={imageRef}
           className="rounded-full border-2 border-[var(--light-border)] will-change-transform dark:border-[var(--dark-border)]"

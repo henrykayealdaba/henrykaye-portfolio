@@ -8,8 +8,6 @@ export default function ArticleI() {
   const titleRef = useRef<HTMLHeadingElement>(null);
   const paragraphRefs = useRef<Array<HTMLParagraphElement | null>>([]);
 
-  console.log(paragraphRefs.current);
-
   useEffect(() => {
     gsap.registerPlugin(ScrollTrigger);
     const ctx = gsap.context(() => {

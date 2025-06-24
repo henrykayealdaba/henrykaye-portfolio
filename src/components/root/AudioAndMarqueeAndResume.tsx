@@ -32,6 +32,7 @@ export default function AudioAndMarqueeNav() {
           x: 0,
           duration: 0.5,
           ease: 'elastic.out(1, 0.3)',
+          delay: 1,
         }
       ).fromTo(
         marqueeNavRef.current,
@@ -64,7 +65,7 @@ export default function AudioAndMarqueeNav() {
       <div className="flex w-screen overflow-hidden p-2 max-md:flex-col">
         <div
           ref={audioPlayerRef}
-          className="transition-left-out flex w-full items-center justify-center"
+          className="homepage-transition-left-out flex w-full items-center justify-center"
         >
           <AudioPlayer
             picture={'duck.jpg'}
@@ -73,7 +74,7 @@ export default function AudioAndMarqueeNav() {
         </div>
         <div
           ref={marqueeNavRef}
-          className="transition-right-out mt-4 flex w-full flex-col max-md:items-center"
+          className="homepage-transition-right-out mt-4 flex w-full flex-col max-md:items-center"
         >
           <Marquee
             fromX="0%"

@@ -1,16 +1,14 @@
 import AboutTheAuthor from '@/components/root/AboutTheAuthor';
-import AudioAndMarqueeNav from '@/components/root/AudioAndMarqueeNav';
+import AudioAndMarqueeAndResume from '@/components/root/AudioAndMarqueeAndResume';
 import Hero from '@/components/root/Hero';
 import Letter from '@/components/root/Letter';
 import Articles from '@/components/root/Articles';
-import ComingSoon from '@/components/ComingSoon';
 export default function Home() {
   return (
-    // TODO: Add a footer section, social media links etc. Check inspiration
     <main className="w-full overflow-x-hidden">
-      <div className="mb-16">
+      <div className="mb-6">
         <Hero />
-        <AudioAndMarqueeNav />
+        <AudioAndMarqueeAndResume />
       </div>
       <div className="mb-6">
         <Letter />
@@ -20,10 +18,6 @@ export default function Home() {
       </div>
       <div className="mb-6">
         <AboutTheAuthor />
-      </div>
-      <div className="mb-6">
-        <ComingSoon />
-        <ComingSoon />
       </div>
     </main>
   );

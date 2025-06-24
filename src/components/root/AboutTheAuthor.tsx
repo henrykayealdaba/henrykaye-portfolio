@@ -65,7 +65,7 @@ export default function AboutTheAuthor() {
               Henry Kaye
             </span>
             , a web developer from nowhere in particular
-            <span className="italic opacity-50">(Kidding haha, laugh people)</span>
+            <span className="italic opacity-50">(Kidding)</span>
           </p>
           <p className="max-md:text-md px-2 text-2xl leading-tight text-pretty max-xl:text-xl max-lg:text-lg max-md:w-md max-md:px-8 max-sm:w-sm max-sm:text-sm">
             From The Philippines. Mostly a self-taught programmer who enjoys fun projects and
@@ -84,14 +84,19 @@ export default function AboutTheAuthor() {
             Look more here <ArrowRight className="inline" />{' '}
           </Link>
         </div>
-        <div className="flex flex-1 flex-col items-center justify-center">
+        <div className="flex flex-1 flex-col items-center justify-center py-4">
           {mounted && (
-            <Image
-              src={`/image/GIF/${isDarkMode ? 'Dark.gif' : 'Star.gif'}`}
-              alt="Henry Kaye"
-              width={200}
-              height={200}
-            />
+            <div className="relative">
+              <Image
+                src={`/image/GIF/${isDarkMode ? 'Demi.gif' : 'Star.gif'}`}
+                alt="Henry Kaye"
+                width={200}
+                height={200}
+              />
+              <div
+                className={`${isDarkMode ? 'animate-pulse bg-white opacity-10' : 'bg-amber-700 opacity-30'} absolute inset-0 rounded-full blur-3xl`}
+              />
+            </div>
           )}
           <div className="space-y-4 rounded-2xl border-2 px-24 py-8">
             <h1 className="text-xl uppercase opacity-50">Somewhere</h1>

@@ -6,7 +6,7 @@ import gsap from 'gsap';
 import { useGsapArray } from '@/lib/hooks/useGsapArray';
 import { Menu } from 'lucide-react';
 import { useGsap } from '@/lib/hooks/useGsap';
-import TransitionLink from '@/components/TransitionLink';
+import TransitionLink from '@/lib/animations/TransitionLink';
 
 export default function Header() {
   // ? Create refs for the elements I want to animate
