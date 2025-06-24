@@ -75,7 +75,7 @@ export default function Hero() {
 
       <span
         ref={span2Ref}
-        className="font-(family-name:--font-edu) text-[clamp(0.2rem,6.3vw,4rem)] leading-none text-nowrap uppercase"
+        className="font-(family-name:--font-edu) text-[clamp(0.2rem,5vw,5rem)] leading-none text-nowrap uppercase"
       >
         <span className="block max-md:text-center">Made with code,</span>
         <span className="block max-md:text-center">caffeine,</span>
