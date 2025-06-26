@@ -4,8 +4,6 @@ import Hero from '@/components/root/Hero';
 import Letter from '@/components/root/Letter';
 import Articles from '@/components/root/Articles';
 export default function Home() {
-  // TODO: Add a content inside of Projects component
-
   return (
     <main className="w-full overflow-x-hidden">
       <div className="mb-6">
