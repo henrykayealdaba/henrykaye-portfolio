@@ -89,6 +89,16 @@ export default function TransitionLink({ to, children }: { to: string; children:
             ease: 'power2.in',
           },
           '<'
+        )
+        .to(
+          '.homepage-letter-down-out',
+          {
+            opacity: 0,
+            yPercent: 100,
+            duration: 0.2,
+            ease: 'power2.in',
+          },
+          '<'
         );
     }
 
@@ -135,6 +145,16 @@ export default function TransitionLink({ to, children }: { to: string; children:
           {
             opacity: 0,
             x: 30,
+            duration: 0.2,
+            ease: 'power2.in',
+          },
+          '<'
+        )
+        .to(
+          '.projects-list-down-out',
+          {
+            opacity: 0,
+            yPercent: 100,
             duration: 0.2,
             ease: 'power2.in',
           },

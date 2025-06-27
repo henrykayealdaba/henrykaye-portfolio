@@ -12,11 +12,18 @@ export default function Letter() {
     gsap.registerPlugin(ScrollTrigger);
     const ctx = gsap.context(() => {
       if (letterRef.current && kanjiRef.current) {
+        gsap.from(containerRef.current, {
+          opacity: 0,
+          yPercent: 100,
+          ease: 'power2.out',
+          duration: 1,
+        });
+
         const tl = gsap.timeline({
           scrollTrigger: {
             trigger: letterRef.current,
-            start: 'top 100%',
-            end: 'bottom 80%',
+            start: 'top 180%',
+            end: 'bottom 160%',
             scrub: 1,
           },
         });
@@ -46,7 +53,7 @@ export default function Letter() {
   return (
     <div
       ref={containerRef}
-      className="flex h-[36rem] w-screen items-center justify-center bg-gradient-to-b from-amber-950 to-yellow-950 p-2 text-center text-[var(--dark-foreground)] dark:bg-slate-900 dark:from-slate-900 dark:to-slate-950"
+      className="homepage-letter-down-out flex h-[36rem] w-screen items-center justify-center bg-gradient-to-b from-amber-950 to-yellow-950 p-2 text-center text-[var(--dark-foreground)] dark:bg-slate-900 dark:from-slate-900 dark:to-slate-950"
     >
       <div className="relative flex h-[95%] w-[95%] flex-col items-center justify-between border-2 border-dotted border-[var(--dark-border)] py-2">
         <p className="text-xs opacity-75">IMPORTANT NOTE FROM THE AUTHOR</p>
