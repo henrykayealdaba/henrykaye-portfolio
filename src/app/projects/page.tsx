@@ -1,5 +1,5 @@
 import ComingSoon from '@/components/ComingSoon';
-import AudioAndMarquee from '@/components/projects/AudioAndMarquee';
+import AudioAndMarqueeAndResume from '@/components/projects/AudioAndMarqueeAndResume';
 import Hero from '@/components/projects/Hero';
 import ProjectList from '@/components/projects/ProjectList';
 import { Metadata } from 'next';
@@ -15,7 +15,7 @@ export default function Projects() {
         <Hero />
       </div>
       <div className="mb-6">
-        <AudioAndMarquee />
+        <AudioAndMarqueeAndResume />
       </div>
       <div className="mb-6">
         <ProjectList />

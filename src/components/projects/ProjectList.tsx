@@ -39,7 +39,7 @@ export default function ProjectList() {
             start: 'top 125%',
             end: 'bottom 105%',
             scrub: 3,
-            markers: true,
+            // markers: true,
           },
           delay: index * 0.1,
         });

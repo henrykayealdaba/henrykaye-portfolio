@@ -5,7 +5,7 @@ import Weather from '@/components/root/OpenWeatherMap';
 import { useEffect, useRef, useState } from 'react';
 import gsap from 'gsap';
 
-export default function AudioAndMarqueeNav() {
+export default function AudioAndMarqueeAndResume() {
   const audioPlayerRef = useRef<HTMLDivElement>(null);
   const marqueeNavRef = useRef<HTMLDivElement>(null);
   const tl = gsap.timeline();

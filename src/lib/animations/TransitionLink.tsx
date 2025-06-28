@@ -31,6 +31,11 @@ export default function TransitionLink({ to, children }: { to: string; children:
     const isProjectsTransitionRight = isVisible('.projects-transition-right-out');
     const isProjectsHero = isVisible('.projects-hero-char');
     const isAuthorHero = isVisible('.author-hero-char');
+    const isAuthorTransitionLeft = isVisible('.author-transition-left-out');
+    const isAuthorTransitionRight = isVisible('.author-transition-right-out');
+    const isJournalHero = isVisible('.journal-hero-char');
+    const isJournalTransitionLeft = isVisible('.journal-transition-left-out');
+    const isJournalTransitionRight = isVisible('.journal-transition-right-out');
 
     const tl = gsap.timeline();
 
@@ -164,7 +169,7 @@ export default function TransitionLink({ to, children }: { to: string; children:
     }
 
     // ? Animate author page hero characters and transitions
-    if (isAuthorHero) {
+    if (isAuthorHero || isAuthorTransitionLeft || isAuthorTransitionRight) {
       tl.to('.author-hero-char-1', {
         opacity: 0,
         yPercent: -100,
@@ -213,6 +218,65 @@ export default function TransitionLink({ to, children }: { to: string; children:
         )
         .to(
           '.author-list-down-out',
+          {
+            opacity: 0,
+            yPercent: 100,
+            duration: 0.2,
+            ease: 'power2.in',
+          },
+          '<'
+        );
+    }
+
+    if (isJournalHero || isJournalTransitionLeft || isJournalTransitionRight) {
+      tl.to('.journal-hero-char-1', {
+        opacity: 0,
+        yPercent: 100,
+        ease: 'expo.inOut',
+        stagger: {
+          each: 0.2,
+          amount: 0.5,
+          from: 'start',
+        },
+        duration: 0.8,
+      })
+        .to(
+          '.journal-hero-char-2',
+          {
+            yPercent: -100,
+            opacity: 0,
+            duration: 0.8,
+            stagger: {
+              each: 0.2,
+              amount: 0.5,
+              from: 'end',
+            },
+            ease: 'expo.inOut',
+          },
+          '<'
+        )
+        .to(
+          '.journal-transition-left-out',
+          {
+            opacity: 0,
+            x: -30,
+            duration: 0.2,
+            ease: 'power2.in',
+          },
+          '=-0.5'
+        )
+        .to(
+          '.journal-transition-right-out',
+          {
+            opacity: 0,
+            x: 30,
+            duration: 0.2,
+            ease: 'power2.in',
+          },
+          '<'
+        )
+        .to(
+          '.journal-list-down-out',
           {
             opacity: 0,
             yPercent: 100,
