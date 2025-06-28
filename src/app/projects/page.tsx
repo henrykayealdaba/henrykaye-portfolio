@@ -2,10 +2,13 @@ import ComingSoon from '@/components/ComingSoon';
 import AudioAndMarquee from '@/components/projects/AudioAndMarquee';
 import Hero from '@/components/projects/Hero';
 import ProjectList from '@/components/projects/ProjectList';
+import { Metadata } from 'next';
+
+export const metadata: Metadata = {
+  title: `Projects`,
+};
 
 export default function Projects() {
-  // TODO: The ProjectList component should be refactored to use gsap and scrollTrigger for animations. Still not implemented.
-
   return (
     <main className="w-full overflow-x-hidden">
       <div className="mb-6">

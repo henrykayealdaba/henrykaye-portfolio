@@ -18,18 +18,6 @@ export default function ProjectList() {
     if (!container) return;
 
     const ctx = gsap.context(() => {
-      const rows = container.querySelectorAll('.row');
-
-      rows.forEach((row) => {
-        const line = row.querySelector('.line');
-        row.addEventListener('mouseenter', () => {
-          gsap.to(line, { width: '100px', duration: 0.4, ease: 'bounce.out' });
-        });
-        row.addEventListener('mouseleave', () => {
-          gsap.to(line, { width: '0%', duration: 1, ease: 'bounce.out' });
-        });
-      });
-
       let tl: gsap.core.Timeline | null = null;
 
       const mediaQuery = window.matchMedia('(min-width: 769px)');
@@ -39,6 +27,22 @@ export default function ProjectList() {
         yPercent: 100,
         ease: 'power2.out',
         duration: 1,
+      });
+
+      gsap.utils.toArray<HTMLElement>('.row-container').forEach((el, index) => {
+        gsap.to(el, {
+          opacity: 0,
+          y: 10,
+          ease: 'power2.out',
+          scrollTrigger: {
+            trigger: el,
+            start: 'top 125%',
+            end: 'bottom 105%',
+            scrub: 3,
+            markers: true,
+          },
+          delay: index * 0.1,
+        });
       });
 
       const createAnimation = () => {
@@ -153,11 +157,11 @@ export default function ProjectList() {
       className="projects-list-down-out flex w-screen flex-col space-y-0 overflow-hidden bg-gradient-to-b from-amber-950 to-yellow-950 p-4 py-16 font-bold text-nowrap text-[var(--dark-foreground)] dark:bg-slate-900 dark:from-slate-900 dark:to-slate-950"
     >
       <p className="border-b pb-2 text-center text-sm font-bold uppercase opacity-75">
-        Stuff I&#39;ve been cooking
+        A little passion, a lot of late nights — here&#39;s the result
       </p>
       <div
         ref={portfolioRef}
-        className="space-x-8 text-center text-[clamp(2rem,6vw,10rem)] max-md:space-x-4 max-md:text-start"
+        className="row-container space-x-8 text-center text-[clamp(2rem,6vw,10rem)] max-md:space-x-4 max-md:text-start"
       >
         <span className="opacity-20 blur-xs select-none has-[+.row:hover]:blur-none max-md:hidden">
           Portfolio
@@ -176,6 +180,20 @@ export default function ProjectList() {
           target="_blank"
           rel="noopener noreferrer"
           className="row peer cursor-pointer"
+          onMouseEnter={(e) => {
+            const line = e.currentTarget.querySelector('.line');
+            if (line) {
+              gsap.killTweensOf(line);
+              gsap.to(line, { width: '100px', duration: 0.4, ease: 'bounce.out' });
+            }
+          }}
+          onMouseLeave={(e) => {
+            const line = e.currentTarget.querySelector('.line');
+            if (line) {
+              gsap.killTweensOf(line);
+              gsap.to(line, { width: '0%', duration: 0.8, ease: 'bounce.out' });
+            }
+          }}
         >
           <span>Port</span>
           <span className="line inline-block h-[4px] w-0 bg-[var(--dark-foreground)] align-middle" />
@@ -195,7 +213,7 @@ export default function ProjectList() {
 
       <div
         ref={kartelRef}
-        className="space-x-8 text-center text-[clamp(2rem,6vw,10rem)] max-md:space-x-4 max-md:text-start"
+        className="row-container space-x-8 text-center text-[clamp(2rem,6vw,10rem)] max-md:space-x-4 max-md:text-start"
       >
         <span className="opacity-20 blur-xs select-none has-[~.row:hover]:blur-none max-md:hidden">
           Kartel
@@ -214,6 +232,20 @@ export default function ProjectList() {
           target="_blank"
           rel="noopener noreferrer"
           className="row peer cursor-pointer"
+          onMouseEnter={(e) => {
+            const line = e.currentTarget.querySelector('.line');
+            if (line) {
+              gsap.killTweensOf(line);
+              gsap.to(line, { width: '100px', duration: 0.4, ease: 'bounce.out' });
+            }
+          }}
+          onMouseLeave={(e) => {
+            const line = e.currentTarget.querySelector('.line');
+            if (line) {
+              gsap.killTweensOf(line);
+              gsap.to(line, { width: '0%', duration: 0.8, ease: 'bounce.out' });
+            }
+          }}
         >
           <span>Kart</span>
           <span className="line inline-block h-[4px] w-0 bg-[var(--dark-foreground)] align-middle" />
@@ -233,7 +265,7 @@ export default function ProjectList() {
 
       <div
         ref={netflixRef}
-        className="space-x-8 text-center text-[clamp(2rem,6vw,10rem)] max-md:space-x-4 max-md:text-start"
+        className="row-container space-x-8 text-center text-[clamp(2rem,6vw,10rem)] max-md:space-x-4 max-md:text-start"
       >
         <span className="opacity-20 blur-xs select-none has-[~.row:hover]:blur-none max-md:hidden">
           Netflix
@@ -252,6 +284,20 @@ export default function ProjectList() {
           target="_blank"
           rel="noopener noreferrer"
           className="row peer cursor-pointer"
+          onMouseEnter={(e) => {
+            const line = e.currentTarget.querySelector('.line');
+            if (line) {
+              gsap.killTweensOf(line);
+              gsap.to(line, { width: '100px', duration: 0.4, ease: 'bounce.out' });
+            }
+          }}
+          onMouseLeave={(e) => {
+            const line = e.currentTarget.querySelector('.line');
+            if (line) {
+              gsap.killTweensOf(line);
+              gsap.to(line, { width: '0%', duration: 0.8, ease: 'bounce.out' });
+            }
+          }}
         >
           <span>Netf</span>
           <span className="line inline-block h-[4px] w-0 bg-[var(--dark-foreground)] align-middle" />
@@ -271,7 +317,7 @@ export default function ProjectList() {
 
       <div
         ref={newtubeRef}
-        className="space-x-8 text-center text-[clamp(2rem,6vw,10rem)] max-md:space-x-4 max-md:text-start"
+        className="row-container space-x-8 text-center text-[clamp(2rem,6vw,10rem)] max-md:space-x-4 max-md:text-start"
       >
         <span className="opacity-20 blur-xs select-none has-[~.row:hover]:blur-none max-md:hidden">
           NewTube
@@ -290,8 +336,22 @@ export default function ProjectList() {
           target="_blank"
           rel="noopener noreferrer"
           className="row peer cursor-pointer"
+          onMouseEnter={(e) => {
+            const line = e.currentTarget.querySelector('.line');
+            if (line) {
+              gsap.killTweensOf(line);
+              gsap.to(line, { width: '100px', duration: 0.4, ease: 'bounce.out' });
+            }
+          }}
+          onMouseLeave={(e) => {
+            const line = e.currentTarget.querySelector('.line');
+            if (line) {
+              gsap.killTweensOf(line);
+              gsap.to(line, { width: '0%', duration: 0.8, ease: 'bounce.out' });
+            }
+          }}
         >
-          <span>YouT</span>
+          <span>NewT</span>
           <span className="line inline-block h-[4px] w-0 bg-[var(--dark-foreground)] align-middle" />
           <span>ube</span>
         </Link>
@@ -307,7 +367,7 @@ export default function ProjectList() {
         </span>
       </div>
       <p className="border-t pt-2 text-center text-sm font-bold uppercase opacity-75">
-        Stuff I&#39;ve been cooking
+        Not perfect, and I&#39;m proud of it
       </p>
     </div>
   );

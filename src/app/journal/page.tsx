@@ -1,4 +1,9 @@
 import ComingSoon from '@/components/ComingSoon';
+import { Metadata } from 'next';
+
+export const metadata: Metadata = {
+  title: 'Journal',
+};
 
 export default function Journal() {
   return (

@@ -1,4 +1,9 @@
 import ComingSoon from '@/components/ComingSoon';
+import { Metadata } from 'next';
+
+export const metadata: Metadata = {
+  title: '3D',
+};
 
 export default function ThreeDimension() {
   return (

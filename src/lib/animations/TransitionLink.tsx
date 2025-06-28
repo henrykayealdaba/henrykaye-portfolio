@@ -30,6 +30,7 @@ export default function TransitionLink({ to, children }: { to: string; children:
     const isProjectsTransitionLeft = isVisible('.projects-transition-left-out');
     const isProjectsTransitionRight = isVisible('.projects-transition-right-out');
     const isProjectsHero = isVisible('.projects-hero-char');
+    const isAuthorHero = isVisible('.author-hero-char');
 
     const tl = gsap.timeline();
 
@@ -152,6 +153,66 @@ export default function TransitionLink({ to, children }: { to: string; children:
         )
         .to(
           '.projects-list-down-out',
+          {
+            opacity: 0,
+            yPercent: 100,
+            duration: 0.2,
+            ease: 'power2.in',
+          },
+          '<'
+        );
+    }
+
+    // ? Animate author page hero characters and transitions
+    if (isAuthorHero) {
+      tl.to('.author-hero-char-1', {
+        opacity: 0,
+        yPercent: -100,
+        ease: 'expo.inOut',
+        stagger: {
+          each: 0.2,
+          amount: 0.5,
+          from: 'start',
+        },
+        duration: 0.8,
+      })
+        .to(
+          '.author-hero-char-2',
+          {
+            yPercent: 100,
+            opacity: 0,
+            duration: 0.8,
+            stagger: {
+              each: 0.2,
+              amount: 0.5,
+              from: 'end',
+            },
+            ease: 'expo.inOut',
+          },
+          '<'
+        )
+        .to(
+          '.author-transition-left-out',
+          {
+            opacity: 0,
+            x: -30,
+            duration: 0.2,
+            ease: 'power2.in',
+          },
+          '=-0.5'
+        )
+        .to(
+          '.author-transition-right-out',
+          {
+            opacity: 0,
+            x: 30,
+            duration: 0.2,
+            ease: 'power2.in',
+          },
+          '<'
+        )
+        .to(
+          '.author-list-down-out',
           {
             opacity: 0,
             yPercent: 100,

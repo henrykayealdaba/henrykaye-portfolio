@@ -52,7 +52,7 @@ export default function Hero() {
   }, []);
 
   return (
-    <div className="flex flex-col justify-center">
+    <div className="homepage-hero-char flex flex-col justify-center">
       <span
         ref={span1Ref}
         className="relative text-center font-(family-name:--font-anton) text-[clamp(2rem,15vw,15rem)] leading-none text-nowrap uppercase"

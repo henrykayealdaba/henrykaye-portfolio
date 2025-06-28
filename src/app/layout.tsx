@@ -56,7 +56,10 @@ const playfair = Playfair_Display({
 });
 
 export const metadata: Metadata = {
-  title: 'Henry Kaye From Online',
+  title: {
+    default: 'Henry Kaye From Online',
+    template: '%s | Henry Kaye From Online',
+  },
   description: 'The personal site & portfolio of nowhere in particular web developer Henry Kaye.',
 };
 
