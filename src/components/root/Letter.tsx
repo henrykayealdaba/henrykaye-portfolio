@@ -17,13 +17,16 @@ export default function Letter() {
           yPercent: 100,
           ease: 'power2.out',
           duration: 1,
+          onComplete: () => {
+            ScrollTrigger.refresh();
+          },
         });
 
         const tl = gsap.timeline({
           scrollTrigger: {
             trigger: letterRef.current,
-            start: 'top 180%',
-            end: 'bottom 160%',
+            start: 'top 80%',
+            end: 'bottom 60%',
             scrub: 1,
           },
         });
