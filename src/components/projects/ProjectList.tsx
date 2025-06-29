@@ -27,21 +27,26 @@ export default function ProjectList() {
         yPercent: 100,
         ease: 'power2.out',
         duration: 1,
+        onComplete: () => {
+          ScrollTrigger.refresh(); // SOLVED!
+        },
       });
 
-      gsap.utils.toArray<HTMLElement>('.row-container').forEach((el, index) => {
-        gsap.to(el, {
-          opacity: 0,
-          y: 10,
-          ease: 'power2.out',
-          scrollTrigger: {
-            trigger: el,
-            start: 'top 125%',
-            end: 'bottom 105%',
-            scrub: 3,
-            // markers: true,
-          },
-          delay: index * 0.1,
+      const mm = gsap.matchMedia();
+      mm.add('(min-width: 769px)', () => {
+        gsap.utils.toArray<HTMLElement>('.row-container').forEach((el, index) => {
+          gsap.to(el, {
+            opacity: 0,
+            y: 10,
+            ease: 'power2.out',
+            scrollTrigger: {
+              trigger: el,
+              start: 'top 20%',
+              end: 'bottom 0%',
+              scrub: 3,
+            },
+            delay: index * 0.1,
+          });
         });
       });
 
@@ -50,8 +55,8 @@ export default function ProjectList() {
         tl = gsap.timeline({
           scrollTrigger: {
             trigger: container,
-            start: 'top 165%',
-            end: 'bottom 180%',
+            start: 'top 65%',
+            end: 'bottom 40%',
             scrub: 4,
             // markers: true,
           },
