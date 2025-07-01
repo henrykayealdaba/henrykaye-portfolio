@@ -75,13 +75,23 @@ body {
     @apply bg-[var(--dark-header-foreground)];
   }
 
-  .line-beside::after {
+  .line-right::after {
     content: '';
     @apply inline-block h-[0.5rem] rounded bg-[var(--light-foreground)];
     width: var(--after-width, 0%);
   }
 
-  .dark .line-beside::after {
+  .dark .line-right::after {
+    @apply bg-[var(--dark-foreground)];
+  }
+
+  .line-left::before {
+    content: '';
+    @apply inline-block h-[0.5rem] rounded bg-[var(--light-foreground)];
+    width: var(--before-width, 0%);
+  }
+
+  .dark .line-left::before {
     @apply bg-[var(--dark-foreground)];
   }
 }

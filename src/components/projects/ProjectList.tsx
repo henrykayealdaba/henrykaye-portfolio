@@ -11,6 +11,7 @@ export default function ProjectList() {
   const kartelRef = useRef<HTMLDivElement>(null);
   const netflixRef = useRef<HTMLDivElement>(null);
   const newtubeRef = useRef<HTMLDivElement>(null);
+  const comingSoonRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     gsap.registerPlugin(ScrollTrigger);
@@ -55,8 +56,8 @@ export default function ProjectList() {
         tl = gsap.timeline({
           scrollTrigger: {
             trigger: container,
-            start: 'top 65%',
-            end: 'bottom 40%',
+            start: 'top 90%',
+            end: 'bottom 80%',
             scrub: 4,
             // markers: true,
           },
@@ -115,11 +116,25 @@ export default function ProjectList() {
               ease: 'power2.out',
             },
             '<'
+          )
+          .fromTo(
+            comingSoonRef.current,
+            {
+              x: '-180%',
+              duration: 1,
+              ease: 'power2.out',
+            },
+            {
+              x: '-100%',
+              duration: 1,
+              ease: 'power2.out',
+            },
+            '<'
           );
       };
 
       const resetTransform = () => {
-        [portfolioRef, kartelRef, netflixRef, newtubeRef].forEach((ref) => {
+        [portfolioRef, kartelRef, netflixRef, newtubeRef, comingSoonRef].forEach((ref) => {
           if (ref.current) {
             gsap.set(ref.current, { clearProps: 'transform' });
           }
@@ -369,6 +384,57 @@ export default function ProjectList() {
         </span>
         <span className="hidden opacity-20 blur-xs select-none peer-hover:blur-none max-md:inline">
           NewTube
+        </span>
+      </div>
+
+      <div
+        ref={comingSoonRef}
+        className="row-container space-x-8 text-center text-[clamp(2rem,6vw,10rem)] max-md:space-x-4 max-md:text-start"
+      >
+        <span className="opacity-20 blur-xs select-none has-[~.row:hover]:blur-none max-md:hidden">
+          ComingSoon
+        </span>
+        <span className="opacity-20 blur-xs select-none has-[+.row:hover]:blur-none max-md:hidden">
+          ComingSoon
+        </span>
+        <span className="opacity-20 blur-xs select-none has-[+.row:hover]:blur-none max-md:hidden">
+          ComingSoon
+        </span>
+        <span className="opacity-20 blur-xs select-none has-[+.row:hover]:blur-none max-md:hidden">
+          ComingSoon
+        </span>
+        <Link
+          href="#"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="row peer group relative cursor-pointer"
+          onMouseEnter={(e) => {
+            const line = e.currentTarget.querySelector('.line');
+            if (line) {
+              gsap.killTweensOf(line);
+              gsap.to(line, { width: '100%', duration: 0.4, ease: 'power2.out' });
+            }
+          }}
+          onMouseLeave={(e) => {
+            const line = e.currentTarget.querySelector('.line');
+            if (line) {
+              gsap.killTweensOf(line);
+              gsap.to(line, { width: '0%', duration: 0.4, ease: 'power2.out' });
+            }
+          }}
+        >
+          <span className="line absolute top-[55%] left-1/2 z-50 inline-block h-[6px] w-0 -translate-x-1/2 -translate-y-1/2 rounded-full bg-[var(--color-orange-light)] align-middle" />
+          <span className="group-hover:opacity-50">ComingSoon</span>
+        </Link>
+        <span className="opacity-20 blur-xs select-none peer-hover:blur-none">ComingSoon</span>
+        <span className="opacity-20 blur-xs select-none peer-hover:blur-none">ComingSoon</span>
+        <span className="opacity-20 blur-xs select-none peer-hover:blur-none">ComingSoon</span>
+        <span className="opacity-20 blur-xs select-none peer-hover:blur-none">ComingSoon</span>
+        <span className="hidden opacity-20 blur-xs select-none peer-hover:blur-none max-md:inline">
+          ComingSoon
+        </span>
+        <span className="hidden opacity-20 blur-xs select-none peer-hover:blur-none max-md:inline">
+          ComingSoon
         </span>
       </div>
       <p className="border-t pt-2 text-center text-sm font-bold uppercase opacity-75">

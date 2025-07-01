@@ -23,9 +23,9 @@ export default function AboutTheAuthor() {
 
   useEffect(() => {
     gsap.registerPlugin(ScrollTrigger);
-    gsap.to('.line-beside', {
+    gsap.to('.line-right', {
       scrollTrigger: {
-        trigger: '.line-beside',
+        trigger: '.line-right',
         start: 'top 90%',
         end: 'bottom -20%',
         scrub: 2,
@@ -43,7 +43,7 @@ export default function AboutTheAuthor() {
   return (
     <div className="space-y-4">
       <h1
-        className="line-beside relative inline-flex w-full items-center gap-2 p-4 font-(family-name:--font-anton) text-9xl font-bold text-nowrap uppercase max-lg:text-8xl max-md:text-6xl max-sm:text-5xl"
+        className="line-right relative inline-flex w-full items-center gap-2 p-4 font-(family-name:--font-anton) text-9xl font-bold text-nowrap uppercase max-lg:text-8xl max-md:text-6xl max-sm:text-5xl"
         style={{ ['--after-width' as string]: '0%' } as React.CSSProperties}
       >
         The Author
@@ -89,7 +89,7 @@ export default function AboutTheAuthor() {
             <div className="relative">
               <Image
                 src={`/image/GIF/${isDarkMode ? 'Demi.gif' : 'Star.gif'}`}
-                alt="Henry Kaye"
+                alt="Henry Kaye Aldaba's Dogs"
                 width={200}
                 height={200}
               />
