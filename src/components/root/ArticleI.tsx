@@ -1,16 +1,17 @@
 'use client';
 import gsap from 'gsap';
-import { useEffect, useRef } from 'react';
+import { useRef } from 'react';
 import ScrollTrigger from 'gsap/ScrollTrigger';
+import { useGSAP } from '@gsap/react';
 
 export default function ArticleI() {
   const containerRef = useRef<HTMLDivElement>(null);
   const titleRef = useRef<HTMLHeadingElement>(null);
   const paragraphRefs = useRef<Array<HTMLParagraphElement | null>>([]);
 
-  useEffect(() => {
-    gsap.registerPlugin(ScrollTrigger);
-    const ctx = gsap.context(() => {
+  useGSAP(
+    () => {
+      gsap.registerPlugin(ScrollTrigger);
       if (titleRef.current) {
         gsap.from(titleRef.current, {
           scrollTrigger: {
@@ -39,11 +40,9 @@ export default function ArticleI() {
           duration: 2,
         });
       }
-    }, containerRef);
-    return () => {
-      ctx.revert();
-    };
-  }, []);
+    },
+    { scope: containerRef }
+  );
 
   return (
     <div ref={containerRef} className="">

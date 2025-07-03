@@ -3,9 +3,8 @@ import { usePathname } from 'next/navigation';
 import DarkModeButton from '@/components/darkMode/darkModeButton';
 import { useRef, useMemo, useState, useEffect } from 'react';
 import gsap from 'gsap';
-import { useGsapArray } from '@/lib/hooks/useGsapArray';
+import { useGSAP } from '@gsap/react';
 import { Menu } from 'lucide-react';
-import { useGsap } from '@/lib/hooks/useGsap';
 import TransitionLink from '@/lib/animations/TransitionLink';
 
 export default function Header() {
@@ -18,6 +17,7 @@ export default function Header() {
   const threeDRef = useRef<HTMLButtonElement>(null);
   const dropdownRef = useRef<HTMLDivElement>(null);
   const buttonRef = useRef<HTMLButtonElement>(null);
+  const containerRef = useRef<HTMLDivElement>(null);
 
   // ? Create an array of refs for the links
 
@@ -27,79 +27,61 @@ export default function Header() {
   );
 
   // ? Animate the Kaye word on hover
-  useGsap(kayeRef, () => {
-    const el = kayeRef.current;
-    const kayeEl = kayeWordRef.current;
+  useGSAP(
+    (context, contextSafe) => {
+      const el = kayeRef.current;
+      const kayeEl = kayeWordRef.current;
 
-    if (!el || !kayeEl) return;
+      if (!el || !kayeEl) return;
 
-    const handleEnter = () => {
-      gsap.to(kayeEl, {
-        x: -17,
-        duration: 0.4,
-        ease: 'elastic.out',
-      });
-    };
+      const handleEnter = contextSafe
+        ? contextSafe(() => {
+            gsap.to(kayeEl, {
+              x: -17,
+              duration: 0.4,
+              ease: 'elastic.out',
+            });
+          })
+        : () => {};
 
-    const handleLeave = () => {
-      gsap.to(kayeEl, {
-        x: 0,
-        duration: 0.4,
-        ease: 'elastic.out',
-      });
-    };
+      const handleLeave = contextSafe
+        ? contextSafe(() => {
+            gsap.to(kayeEl, {
+              x: 0,
+              duration: 0.4,
+              ease: 'elastic.out',
+            });
+          })
+        : () => {};
 
-    el.addEventListener('mouseenter', handleEnter);
-    el.addEventListener('mouseleave', handleLeave);
+      el.addEventListener('mouseenter', handleEnter);
+      el.addEventListener('mouseleave', handleLeave);
 
-    // ? Optional cleanup (if you're using React 18's strict mode or want best practice)
-    return () => {
-      el.removeEventListener('mouseenter', handleEnter);
-      el.removeEventListener('mouseleave', handleLeave);
-    };
-  });
+      // ? Optional cleanup (if you're using React 18's strict mode or want best practice)
+      return () => {
+        el.removeEventListener('mouseenter', handleEnter);
+        el.removeEventListener('mouseleave', handleLeave);
+      };
+    },
+    { scope: containerRef }
+  );
 
   // ? Animate the links on mount
-  useGsapArray(refs, (elements) => {
-    gsap.from(elements, {
-      opacity: 0,
-      y: 20,
-      stagger: 0.15,
-      ease: 'bounce.out',
-      duration: 1,
-    });
-
-    // ! Experimental Animation on Hover!!
-    // elements.forEach((el) => {
-    //   const underline = el.querySelector('.underline-bar');
-
-    //   if (!underline) return;
-
-    //   const handleEnter = () => {
-    //     gsap.to(underline, {
-    //       width: '100%',
-    //       duration: 0.5,
-    //       ease: 'bounce.out',
-    //     });
-    //   };
-
-    //   const handleLeave = () => {
-    //     gsap.to(underline, {
-    //       width: 0,
-    //       duration: 0.2,
-    //       ease: 'power2.out',
-    //     });
-    //   };
-
-    //   el.addEventListener('mouseenter', handleEnter);
-    //   el.addEventListener('mouseleave', handleLeave);
-
-    //   return () => {
-    //     el.removeEventListener('mouseneter', handleEnter);
-    //     el.removeEventListener('mouseleave', handleLeave);
-    //   };
-    // });
-  });
+  useGSAP(
+    () => {
+      gsap.from(
+        refs.map((ref) => ref.current),
+        {
+          opacity: 0,
+          y: 20,
+          stagger: { amount: 0.2, from: 'random' },
+          ease: 'bounce.out',
+          duration: 1,
+        }
+      );
+    },
+    { scope: containerRef }
+  );
 
   // ? This is for the pathname to determine which page is active
   const pathname = usePathname();
@@ -128,53 +110,63 @@ export default function Header() {
   }, []);
 
   // ? This is for closing the menu when resizing the window
-  useEffect(() => {
-    const handleResize = () => {
-      if (window.innerWidth >= 768) {
-        setIsOpen(false);
-      }
-    };
+  useGSAP(
+    (context, contextSafe) => {
+      const handleResize = contextSafe
+        ? contextSafe(() => {
+            if (window.innerWidth >= 768) {
+              setIsOpen(false);
+            }
+          })
+        : () => {};
 
-    handleResize();
+      handleResize();
 
-    window.addEventListener('resize', handleResize);
+      window.addEventListener('resize', handleResize);
 
-    return () => {
-      window.removeEventListener('resize', handleResize);
-    };
-  }, []);
+      return () => {
+        window.removeEventListener('resize', handleResize);
+      };
+    },
+    { scope: containerRef }
+  );
 
   // ? This is for animating the dropdown menu when opening and closing
-  useGsap(dropdownRef, () => {
-    const dropdown = dropdownRef.current;
-    if (!dropdown) return;
+  useGSAP(
+    () => {
+      const dropdown = dropdownRef.current;
+      if (!dropdown) return;
 
-    if (isOpen) {
-      gsap.fromTo(
-        dropdown,
-        { autoAlpha: 0, y: -10 },
-        {
-          autoAlpha: 1,
-          y: 0,
+      if (isOpen) {
+        gsap.fromTo(
+          dropdown,
+          { autoAlpha: 0, y: -10 },
+          {
+            autoAlpha: 1,
+            y: 0,
+            duration: 0.015,
+            ease: 'elastic.out',
+            pointerEvents: 'auto',
+          }
+        );
+      } else {
+        gsap.to(dropdown, {
+          autoAlpha: 0,
+          y: -10,
           duration: 0.015,
           ease: 'elastic.out',
-          pointerEvents: 'auto',
-        }
-      );
-    } else {
-      gsap.to(dropdown, {
-        autoAlpha: 0,
-        y: -10,
-        duration: 0.015,
-        ease: 'elastic.out',
-        pointerEvents: 'none',
-      });
-    }
-  }, [isOpen]);
+          pointerEvents: 'none',
+        });
+      }
+    },
+    { scope: containerRef, dependencies: [isOpen] }
+  );
 
   return (
-    //! Experimental Animation on Hover is commented out
-    <main className="fixed top-0 right-0 left-0 z-50 flex w-screen items-center gap-44 px-6 py-2 backdrop-blur-xs not-dark:bg-[var(--light-header-bg)]/75 max-md:justify-between md:justify-center dark:bg-[var(--dark-header-bg)]">
+    <main
+      ref={containerRef}
+      className="fixed top-0 right-0 left-0 z-50 flex w-screen items-center gap-44 px-6 py-2 backdrop-blur-xs not-dark:bg-[var(--light-header-bg)]/75 max-md:justify-between md:justify-center dark:bg-[var(--dark-header-bg)]"
+    >
       <div ref={kayeRef}>
         <TransitionLink to="/">
           <button
@@ -195,7 +187,6 @@ export default function Header() {
             draggable={false}
           >
             Projects
-            {/* <span className="underline-bar absolute -bottom-1 left-0 h-[2px] w-0 origin-left bg-black dark:bg-white"></span> */}
           </button>
         </TransitionLink>
         <TransitionLink to="/author">
@@ -205,7 +196,6 @@ export default function Header() {
             draggable={false}
           >
             Author
-            {/* <span className="underline-bar absolute -bottom-1 left-0 h-[2px] w-0 origin-left bg-black dark:bg-white"></span> */}
           </button>
         </TransitionLink>
         <TransitionLink to="/journal">
@@ -215,7 +205,6 @@ export default function Header() {
             draggable={false}
           >
             Journal
-            {/* <span className="underline-bar absolute -bottom-1 left-0 h-[2px] w-0 origin-left bg-black dark:bg-white"></span> */}
           </button>
         </TransitionLink>
         <TransitionLink to="/3d">
@@ -225,7 +214,6 @@ export default function Header() {
             draggable={false}
           >
             3D
-            {/* <span className="underline-bar absolute -bottom-1 left-0 h-[2px] w-0 origin-left bg-black dark:bg-white"></span> */}
           </button>
         </TransitionLink>
       </div>

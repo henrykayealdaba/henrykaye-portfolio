@@ -4,6 +4,7 @@ import Hero from '@/components/author/Hero';
 import AudioAndMarqueeAndResume from '@/components/author/AudioAndMarqueeAndResume';
 import Bio from '@/components/author/Bio';
 import Letter from '@/components/author/Letter';
+import Equipments from '@/components/author/Equipments';
 
 export const metadata: Metadata = {
   title: 'Author',
@@ -29,6 +30,9 @@ export default function Author() {
       </div>
       <div className="mb-6">
         <Bio />
+      </div>
+      <div>
+        <Equipments />
       </div>
       <div className="mb-6">
         <ComingSoon />

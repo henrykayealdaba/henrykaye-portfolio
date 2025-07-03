@@ -4,6 +4,7 @@ import { useEffect, useRef } from 'react';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { useTheme } from 'next-themes';
 import Image from 'next/image';
+import { useGSAP } from '@gsap/react';
 export default function Bio() {
   const { theme, resolvedTheme } = useTheme();
   const isDarkMode = theme === 'dark' || resolvedTheme === 'dark';
@@ -15,10 +16,10 @@ export default function Bio() {
   const containerRef = useRef<HTMLDivElement>(null);
   const items = [birthPlaceRef, diplomaRef, ojtRef, soonRef];
 
-  useEffect(() => {
-    gsap.registerPlugin(ScrollTrigger);
+  useGSAP(
+    () => {
+      gsap.registerPlugin(ScrollTrigger);
 
-    const ctx = gsap.context(() => {
       // Animate each item individually
       items.forEach((ref) => {
         if (!ref.current) return;
@@ -61,10 +62,9 @@ export default function Bio() {
         duration: 5,
         ease: 'power1.inOut',
       });
-    }, containerRef);
-
-    return () => ctx.revert();
-  }, []);
+    },
+    { scope: containerRef, revertOnUpdate: true }
+  );
 
   return (
     <div ref={containerRef} className="flex flex-col items-center space-y-4">

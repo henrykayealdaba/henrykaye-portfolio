@@ -2,14 +2,14 @@
 import Marquee from '@/components/root/Marquee';
 import AudioPlayer from '@/components/root/AudioPlayer';
 import Weather from '@/components/root/OpenWeatherMap';
-import { useEffect, useRef, useState } from 'react';
+import { useRef, useState } from 'react';
 import gsap from 'gsap';
+import { useGSAP } from '@gsap/react';
 
 export default function AudioAndMarqueeAndResume() {
   const audioPlayerRef = useRef<HTMLDivElement>(null);
   const marqueeNavRef = useRef<HTMLDivElement>(null);
   const tl = gsap.timeline();
-  const hasAnimated = useRef(false);
   type WeatherType = {
     name: string;
     main: { temp: number };
@@ -19,10 +19,7 @@ export default function AudioAndMarqueeAndResume() {
 
   // ? Animate the audio player and marquee nav on mount
 
-  useEffect(() => {
-    if (hasAnimated.current) return;
-    hasAnimated.current = true;
-
+  useGSAP(() => {
     if (audioPlayerRef.current && marqueeNavRef.current) {
       tl.fromTo(
         audioPlayerRef.current,
@@ -45,7 +42,7 @@ export default function AudioAndMarqueeAndResume() {
         }
       );
     }
-  }, []);
+  });
 
   // ? Get today's date and format it
   const today = new Date();

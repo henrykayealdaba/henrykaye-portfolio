@@ -1,7 +1,8 @@
 'use client';
 import gsap from 'gsap';
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useRef } from 'react';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import { useGSAP } from '@gsap/react';
 import {
   Facebook,
   Github,
@@ -20,28 +21,32 @@ export default function AboutTheAuthor() {
   const { theme, resolvedTheme } = useTheme();
   const isDarkMode = theme === 'dark' || resolvedTheme === 'dark';
   const [mounted, setMounted] = useState(false);
+  const containerRef = useRef<HTMLDivElement>(null);
 
-  useEffect(() => {
-    gsap.registerPlugin(ScrollTrigger);
-    gsap.to('.line-right', {
-      scrollTrigger: {
-        trigger: '.line-right',
-        start: 'top 90%',
-        end: 'bottom -20%',
-        scrub: 2,
-      },
-      css: { '--after-width': '100%' },
-      duration: 5,
-      ease: 'power1.inOut',
-    });
-  }, []);
+  useGSAP(
+    () => {
+      gsap.registerPlugin(ScrollTrigger);
+      gsap.to('.line-right', {
+        scrollTrigger: {
+          trigger: '.line-right',
+          start: 'top 90%',
+          end: 'bottom -20%',
+          scrub: 2,
+        },
+        css: { '--after-width': '100%' },
+        duration: 5,
+        ease: 'power1.inOut',
+      });
+    },
+    { scope: containerRef }
+  );
 
   useEffect(() => {
     setMounted(true);
   }, []);
 
   return (
-    <div className="space-y-4">
+    <div ref={containerRef} className="space-y-4">
       <h1
         className="line-right relative inline-flex w-full items-center gap-2 p-4 font-(family-name:--font-anton) text-9xl font-bold text-nowrap uppercase max-lg:text-8xl max-md:text-6xl max-sm:text-5xl"
         style={{ ['--after-width' as string]: '0%' } as React.CSSProperties}

@@ -225,6 +225,16 @@ export default function TransitionLink({ to, children }: { to: string; children:
             ease: 'power2.in',
           },
           '<'
+        )
+        .to(
+          '.author-letter-down-out',
+          {
+            opacity: 0,
+            yPercent: 100,
+            duration: 0.2,
+            ease: 'power2.in',
+          },
+          '<'
         );
     }
 

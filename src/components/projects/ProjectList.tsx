@@ -1,9 +1,10 @@
 'use client';
 
-import { useEffect, useRef } from 'react';
+import { useRef } from 'react';
 import Link from 'next/link';
 import gsap from 'gsap';
 import ScrollTrigger from 'gsap/ScrollTrigger';
+import { useGSAP } from '@gsap/react';
 
 export default function ProjectList() {
   const containerRef = useRef<HTMLDivElement>(null);
@@ -13,12 +14,12 @@ export default function ProjectList() {
   const newtubeRef = useRef<HTMLDivElement>(null);
   const comingSoonRef = useRef<HTMLDivElement>(null);
 
-  useEffect(() => {
-    gsap.registerPlugin(ScrollTrigger);
-    const container = containerRef.current;
-    if (!container) return;
+  useGSAP(
+    (context, contextSafe) => {
+      gsap.registerPlugin(ScrollTrigger);
+      const container = containerRef.current;
+      if (!container) return;
 
-    const ctx = gsap.context(() => {
       let tl: gsap.core.Timeline | null = null;
 
       const mediaQuery = window.matchMedia('(min-width: 769px)');
@@ -56,8 +57,8 @@ export default function ProjectList() {
         tl = gsap.timeline({
           scrollTrigger: {
             trigger: container,
-            start: 'top 90%',
-            end: 'bottom 80%',
+            start: 'top 60%',
+            end: 'bottom 60%',
             scrub: 4,
             // markers: true,
           },
@@ -133,25 +134,29 @@ export default function ProjectList() {
           );
       };
 
-      const resetTransform = () => {
-        [portfolioRef, kartelRef, netflixRef, newtubeRef, comingSoonRef].forEach((ref) => {
-          if (ref.current) {
-            gsap.set(ref.current, { clearProps: 'transform' });
-          }
-        });
-      };
+      const resetTransform = contextSafe
+        ? contextSafe(() => {
+            [portfolioRef, kartelRef, netflixRef, newtubeRef, comingSoonRef].forEach((ref) => {
+              if (ref.current) {
+                gsap.set(ref.current, { clearProps: 'transform' });
+              }
+            });
+          })
+        : () => {};
 
-      const handleMediaChange = (e: MediaQueryListEvent) => {
-        if (e.matches) {
-          createAnimation();
-        } else {
-          if (tl) {
-            tl.kill();
-            ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
-          }
-          resetTransform();
-        }
-      };
+      const handleMediaChange = contextSafe
+        ? contextSafe((e: MediaQueryListEvent) => {
+            if (e.matches) {
+              createAnimation();
+            } else {
+              if (tl) {
+                tl.kill();
+                ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
+              }
+              resetTransform();
+            }
+          })
+        : () => {};
 
       if (mediaQuery.matches) {
         createAnimation();
@@ -166,10 +171,10 @@ export default function ProjectList() {
         if (tl) tl.kill();
         ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
       };
-    }, container);
+    },
 
-    return () => ctx.revert();
-  }, []);
+    { scope: containerRef }
+  );
 
   return (
     <div

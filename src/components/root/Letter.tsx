@@ -1,16 +1,17 @@
 'use client';
 import gsap from 'gsap';
-import { useEffect, useRef } from 'react';
+import { useRef } from 'react';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import { useGSAP } from '@gsap/react';
 
 export default function Letter() {
   const containerRef = useRef<HTMLDivElement>(null);
   const letterRef = useRef<HTMLParagraphElement | null>(null);
   const kanjiRef = useRef<HTMLDivElement>(null);
 
-  useEffect(() => {
-    gsap.registerPlugin(ScrollTrigger);
-    const ctx = gsap.context(() => {
+  useGSAP(
+    () => {
+      gsap.registerPlugin(ScrollTrigger);
       if (letterRef.current && kanjiRef.current) {
         gsap.from(containerRef.current, {
           opacity: 0,
@@ -46,12 +47,9 @@ export default function Letter() {
           '<2'
         );
       }
-    }, containerRef);
-
-    return () => {
-      ctx.revert();
-    };
-  }, []);
+    },
+    { scope: containerRef, revertOnUpdate: true }
+  );
 
   return (
     <div

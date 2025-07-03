@@ -2,10 +2,12 @@
 import { useRef, useEffect, useState } from 'react';
 import gsap from 'gsap';
 import SplitText from 'gsap/SplitText';
+import { useGSAP } from '@gsap/react';
 
 export default function Hero() {
   gsap.registerPlugin(SplitText);
 
+  const containerRef = useRef<HTMLDivElement>(null);
   const span1Ref = useRef<HTMLSpanElement>(null);
   const span2Ref = useRef<HTMLSpanElement>(null);
   const [mounted, setMounted] = useState(false);
@@ -15,35 +17,24 @@ export default function Hero() {
   }, []);
 
   // ? Animate Hero from the start (or reload)
-  useEffect(() => {
-    if (mounted && span1Ref.current && span2Ref.current) {
-      const tl = gsap.timeline();
-      const split1 = new SplitText(span1Ref.current, {
-        type: 'chars',
-        charsClass: 'journal-hero-char-1',
-        mask: 'chars',
-        aria: 'none',
-      });
-      const split2 = new SplitText(span2Ref.current, {
-        type: 'chars',
-        charsClass: 'journal-hero-char-2',
-        mask: 'chars',
-        aria: 'none',
-      });
+  useGSAP(
+    () => {
+      if (mounted && span1Ref.current && span2Ref.current) {
+        const tl = gsap.timeline();
+        const split1 = new SplitText(span1Ref.current, {
+          type: 'chars',
+          charsClass: 'journal-hero-char-1',
+          mask: 'chars',
+          aria: 'none',
+        });
+        const split2 = new SplitText(span2Ref.current, {
+          type: 'chars',
+          charsClass: 'journal-hero-char-2',
+          mask: 'chars',
+          aria: 'none',
+        });
 
-      tl.from([...split1.chars], {
-        opacity: 0,
-        yPercent: 100,
-        ease: 'expo.inOut',
-        stagger: {
-          each: 0.2,
-          amount: 0.2,
-          from: 'start',
-        },
-        duration: 0.8,
-      }).from(
-        [...split2.chars],
-        {
+        tl.from([...split1.chars], {
           opacity: 0,
           yPercent: 100,
           ease: 'expo.inOut',
@@ -53,19 +44,36 @@ export default function Hero() {
             from: 'start',
           },
           duration: 0.8,
-        },
-        '<0.3'
-      );
+        }).from(
+          [...split2.chars],
+          {
+            opacity: 0,
+            yPercent: 100,
+            ease: 'expo.inOut',
+            stagger: {
+              each: 0.2,
+              amount: 0.2,
+              from: 'start',
+            },
+            duration: 0.8,
+          },
+          '<0.3'
+        );
 
-      return () => {
-        split1.revert();
-        split2.revert();
-      };
-    }
-  }, [mounted]);
+        return () => {
+          split1.revert();
+          split2.revert();
+        };
+      }
+    },
+    { scope: containerRef, dependencies: [mounted] }
+  );
 
   return (
-    <div className="journal-hero-char flex items-end justify-center max-md:flex-col max-md:items-center">
+    <div
+      ref={containerRef}
+      className="journal-hero-char flex items-end justify-center max-md:flex-col max-md:items-center"
+    >
       <span
         ref={span1Ref}
         className="relative text-center font-(family-name:--font-anton) text-[clamp(2rem,15vw,15rem)] leading-none text-nowrap uppercase"

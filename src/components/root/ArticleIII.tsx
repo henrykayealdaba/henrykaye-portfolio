@@ -1,7 +1,8 @@
 'use client';
-import { useRef, useEffect } from 'react';
+import { useRef } from 'react';
 import gsap from 'gsap';
 import ScrollTrigger from 'gsap/ScrollTrigger';
+import { useGSAP } from '@gsap/react';
 
 export default function ArticleIII() {
   const containerRef = useRef<HTMLDivElement>(null);
@@ -10,9 +11,9 @@ export default function ArticleIII() {
   const questionRowRef = useRef<HTMLDivElement>(null);
   const lastParagraphRef = useRef<HTMLDivElement>(null);
 
-  useEffect(() => {
-    gsap.registerPlugin(ScrollTrigger);
-    const ctx = gsap.context(() => {
+  useGSAP(
+    () => {
+      gsap.registerPlugin(ScrollTrigger);
       if (titleRef.current) {
         gsap.from(titleRef.current, {
           scrollTrigger: {
@@ -71,10 +72,9 @@ export default function ArticleIII() {
           ease: 'back.out(2)',
         });
       }
-    }, containerRef);
-
-    return () => ctx.revert();
-  }, []);
+    },
+    { scope: containerRef }
+  );
 
   return (
     <div ref={containerRef} className="">

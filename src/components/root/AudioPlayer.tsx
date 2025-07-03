@@ -2,6 +2,7 @@
 import { useRef, useEffect, useState } from 'react';
 import Image from 'next/image';
 import gsap from 'gsap';
+import { useGSAP } from '@gsap/react';
 import { PlayIcon, PauseIcon, ChevronsLeftIcon, ChevronsRightIcon } from 'lucide-react';
 
 export default function AudioPlayer({ picture, audioUrl }: { picture: string; audioUrl: string }) {
@@ -38,24 +39,27 @@ export default function AudioPlayer({ picture, audioUrl }: { picture: string; au
   }, []);
 
   // ? Create the tween once
-  useEffect(() => {
-    if (!imageRef.current) return;
+  useGSAP(
+    () => {
+      if (!imageRef.current) return;
 
-    tweenRef.current = gsap.to(imageRef.current, {
-      rotate: 360,
-      duration: 5,
-      ease: 'linear',
-      repeat: -1,
-      paused: true,
-      modifiers: {
-        rotate: (value) => `${parseFloat(value) % 360}deg`,
-      },
-    });
+      tweenRef.current = gsap.to(imageRef.current, {
+        rotate: 360,
+        duration: 5,
+        ease: 'linear',
+        repeat: -1,
+        paused: true,
+        modifiers: {
+          rotate: (value) => `${parseFloat(value) % 360}deg`,
+        },
+      });
 
-    return () => {
-      tweenRef.current?.kill();
-    };
-  }, []);
+      return () => {
+        tweenRef.current?.kill();
+      };
+    },
+    { scope: imageRef }
+  );
 
   // ? Control play/pause
   useEffect(() => {
