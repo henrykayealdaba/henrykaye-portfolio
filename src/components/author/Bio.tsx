@@ -88,7 +88,7 @@ export default function Bio() {
         />
       </div>
 
-      <div className="flex w-2xl">
+      <div className="flex w-2xl max-xl:w-xl max-lg:w-lg max-md:w-md max-sm:w-sm">
         <ol className="relative space-y-16 before:absolute before:top-0 before:left-1/2 before:h-full before:w-1 before:-translate-x-1/2 before:rounded-full before:bg-[var(--light-foreground)] dark:before:bg-gray-400">
           <li ref={birthPlaceRef} className="group relative grid grid-cols-2 odd:-me-3 even:-ms-3">
             <div className="relative flex items-start gap-4 group-odd:flex-row-reverse group-odd:text-right group-even:order-last">
@@ -165,6 +165,7 @@ export default function Bio() {
           </li>
         </ol>
       </div>
+
       <div className="flex space-x-4">
         <div className="relative">
           <Image

@@ -76,7 +76,7 @@ export default function Letter() {
 
         <div
           ref={kanjiRef}
-          className="pointer-events-none absolute top-1/2 left-1/2 z-0 -translate-x-1/2 -translate-y-1/2 text-[clamp(12rem,35vw,35rem)] text-nowrap opacity-10 select-none"
+          className="pointer-events-none absolute top-1/2 left-1/2 z-0 -translate-x-1/2 -translate-y-1/2 text-[clamp(12rem,35vw,35rem)] text-nowrap opacity-30 select-none"
         >
           手紙
         </div>

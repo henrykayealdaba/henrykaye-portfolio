@@ -238,10 +238,10 @@ export default function ProjectList() {
         <span className="opacity-20 blur-xs select-none has-[~.row:hover]:blur-none max-md:hidden">
           Kartel
         </span>
-        <span className="opacity-20 blur-xs select-none has-[+.row:hover]:blur-none max-md:hidden">
+        <span className="opacity-20 blur-xs select-none has-[~.row:hover]:blur-none max-md:hidden">
           Kartel
         </span>
-        <span className="opacity-20 blur-xs select-none has-[+.row:hover]:blur-none max-md:hidden">
+        <span className="opacity-20 blur-xs select-none has-[~.row:hover]:blur-none max-md:hidden">
           Kartel
         </span>
         <span className="opacity-20 blur-xs select-none has-[+.row:hover]:blur-none max-md:hidden">
@@ -290,10 +290,10 @@ export default function ProjectList() {
         <span className="opacity-20 blur-xs select-none has-[~.row:hover]:blur-none max-md:hidden">
           Netflix
         </span>
-        <span className="opacity-20 blur-xs select-none has-[+.row:hover]:blur-none max-md:hidden">
+        <span className="opacity-20 blur-xs select-none has-[~.row:hover]:blur-none max-md:hidden">
           Netflix
         </span>
-        <span className="opacity-20 blur-xs select-none has-[+.row:hover]:blur-none max-md:hidden">
+        <span className="opacity-20 blur-xs select-none has-[~.row:hover]:blur-none max-md:hidden">
           Netflix
         </span>
         <span className="opacity-20 blur-xs select-none has-[+.row:hover]:blur-none max-md:hidden">
@@ -342,10 +342,10 @@ export default function ProjectList() {
         <span className="opacity-20 blur-xs select-none has-[~.row:hover]:blur-none max-md:hidden">
           NewTube
         </span>
-        <span className="opacity-20 blur-xs select-none has-[+.row:hover]:blur-none max-md:hidden">
+        <span className="opacity-20 blur-xs select-none has-[~.row:hover]:blur-none max-md:hidden">
           NewTube
         </span>
-        <span className="opacity-20 blur-xs select-none has-[+.row:hover]:blur-none max-md:hidden">
+        <span className="opacity-20 blur-xs select-none has-[~.row:hover]:blur-none max-md:hidden">
           NewTube
         </span>
         <span className="opacity-20 blur-xs select-none has-[+.row:hover]:blur-none max-md:hidden">
@@ -394,10 +394,10 @@ export default function ProjectList() {
         <span className="opacity-20 blur-xs select-none has-[~.row:hover]:blur-none max-md:hidden">
           ComingSoon
         </span>
-        <span className="opacity-20 blur-xs select-none has-[+.row:hover]:blur-none max-md:hidden">
+        <span className="opacity-20 blur-xs select-none has-[~.row:hover]:blur-none max-md:hidden">
           ComingSoon
         </span>
-        <span className="opacity-20 blur-xs select-none has-[+.row:hover]:blur-none max-md:hidden">
+        <span className="opacity-20 blur-xs select-none has-[~.row:hover]:blur-none max-md:hidden">
           ComingSoon
         </span>
         <span className="opacity-20 blur-xs select-none has-[+.row:hover]:blur-none max-md:hidden">
