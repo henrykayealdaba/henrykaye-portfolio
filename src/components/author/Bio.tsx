@@ -1,6 +1,6 @@
 'use client';
 import gsap from 'gsap';
-import { useEffect, useRef } from 'react';
+import { useRef } from 'react';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { useTheme } from 'next-themes';
 import Image from 'next/image';
