@@ -120,7 +120,7 @@ export default function ArticleIII() {
           <span className="leading-none font-bold">O</span>
           <span className="leading-none font-bold">W</span>
         </div>
-        <div className="flex flex-col border-l-4 border-[var(--light-border)] px-2 dark:border-[var(--dark-border)] dark:bg-[var(--dark-header-bg)]">
+        <div className="flex flex-col border-r-4 border-l-4 border-[var(--light-border)] px-2 dark:border-[var(--dark-border)] dark:bg-[var(--dark-header-bg)]">
           <span className="text-sm">&#34;How wide? How high?&#34;</span>
           <span className="text-sm">&#34;How soon? How much?&#34;</span>
           <span className="text-sm">&#34;What size? What color?&#34;</span>

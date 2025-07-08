@@ -75,7 +75,7 @@ export default function Letter() {
 
         <div
           ref={kanjiRef}
-          className="pointer-events-none absolute top-1/2 left-1/2 z-0 -translate-x-1/2 -translate-y-1/2 font-(family-name:--font-cinzel) text-[clamp(8rem,20vw,20rem)] text-nowrap opacity-30 select-none"
+          className="pointer-events-none absolute top-1/2 left-1/2 z-0 -translate-x-1/2 -translate-y-1/2 font-(family-name:--font-cinzel) text-[clamp(5rem,16vw,16rem)] text-nowrap opacity-40 select-none"
         >
           LIHAM
         </div>

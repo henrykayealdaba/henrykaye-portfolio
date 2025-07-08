@@ -20,7 +20,6 @@ export default function Projects() {
       <div className="mb-6">
         <ProjectList />
       </div>
-      <p className="text-center">THIS IS THE PROJECTS PAGE 🛠️</p>
       <div className="mb-6">
         <ComingSoon />
         <ComingSoon />

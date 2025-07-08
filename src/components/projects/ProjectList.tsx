@@ -10,6 +10,7 @@ export default function ProjectList() {
   const containerRef = useRef<HTMLDivElement>(null);
   const portfolioRef = useRef<HTMLDivElement>(null);
   const kartelRef = useRef<HTMLDivElement>(null);
+  const tatakSiklistaRef = useRef<HTMLDivElement>(null);
   const netflixRef = useRef<HTMLDivElement>(null);
   const newtubeRef = useRef<HTMLDivElement>(null);
   const comingSoonRef = useRef<HTMLDivElement>(null);
@@ -79,7 +80,7 @@ export default function ProjectList() {
           .fromTo(
             kartelRef.current,
             {
-              x: '-100%',
+              x: '-85%',
               duration: 1,
               ease: 'power2.out',
             },
@@ -91,14 +92,28 @@ export default function ProjectList() {
             '<'
           )
           .fromTo(
-            netflixRef.current,
+            tatakSiklistaRef.current,
             {
-              x: '30%',
+              x: '-80%',
               duration: 1,
               ease: 'power2.out',
             },
             {
-              x: '-50%',
+              x: '-140%',
+              duration: 1,
+              ease: 'power2.out',
+            },
+            '<'
+          )
+          .fromTo(
+            netflixRef.current,
+            {
+              x: '-10%',
+              duration: 1,
+              ease: 'power2.out',
+            },
+            {
+              x: '-60%',
               duration: 1,
               ease: 'power2.out',
             },
@@ -136,7 +151,14 @@ export default function ProjectList() {
 
       const resetTransform = contextSafe
         ? contextSafe(() => {
-            [portfolioRef, kartelRef, netflixRef, newtubeRef, comingSoonRef].forEach((ref) => {
+            [
+              portfolioRef,
+              kartelRef,
+              tatakSiklistaRef,
+              netflixRef,
+              newtubeRef,
+              comingSoonRef,
+            ].forEach((ref) => {
               if (ref.current) {
                 gsap.set(ref.current, { clearProps: 'transform' });
               }
@@ -285,6 +307,58 @@ export default function ProjectList() {
         </span>
         <span className="hidden opacity-20 blur-xs select-none peer-hover:blur-none max-md:inline">
           Kartel
+        </span>
+      </div>
+
+      <div
+        ref={tatakSiklistaRef}
+        className="row-container space-x-8 text-center text-[clamp(2rem,6vw,10rem)] max-md:space-x-4 max-md:text-start"
+      >
+        <span className="opacity-20 blur-xs select-none has-[~.row:hover]:blur-none max-md:hidden">
+          TatakSiklista
+        </span>
+        <span className="opacity-20 blur-xs select-none has-[~.row:hover]:blur-none max-md:hidden">
+          TatakSiklista
+        </span>
+        <span className="opacity-20 blur-xs select-none has-[~.row:hover]:blur-none max-md:hidden">
+          TatakSiklista
+        </span>
+        <span className="opacity-20 blur-xs select-none has-[+.row:hover]:blur-none max-md:hidden">
+          TatakSiklista
+        </span>
+        <Link
+          href="https://tatak-siklista.firebaseapp.com/"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="row peer cursor-pointer"
+          onMouseEnter={(e) => {
+            const line = e.currentTarget.querySelector('.line');
+            if (line) {
+              gsap.killTweensOf(line);
+              gsap.to(line, { width: '100px', duration: 0.4, ease: 'bounce.out' });
+            }
+          }}
+          onMouseLeave={(e) => {
+            const line = e.currentTarget.querySelector('.line');
+            if (line) {
+              gsap.killTweensOf(line);
+              gsap.to(line, { width: '0%', duration: 0.8, ease: 'bounce.out' });
+            }
+          }}
+        >
+          <span>Tatak</span>
+          <span className="line inline-block h-[4px] w-0 bg-[var(--dark-foreground)] align-middle" />
+          <span>Siklista</span>
+        </Link>
+        <span className="opacity-20 blur-xs select-none peer-hover:blur-none">TatakSiklista</span>
+        <span className="opacity-20 blur-xs select-none peer-hover:blur-none">TatakSiklista</span>
+        <span className="opacity-20 blur-xs select-none peer-hover:blur-none">TatakSiklista</span>
+        <span className="opacity-20 blur-xs select-none peer-hover:blur-none">TatakSiklista</span>
+        <span className="hidden opacity-20 blur-xs select-none peer-hover:blur-none max-md:inline">
+          TatakSiklista
+        </span>
+        <span className="hidden opacity-20 blur-xs select-none peer-hover:blur-none max-md:inline">
+          TatakSiklista
         </span>
       </div>
 
