@@ -56,7 +56,6 @@ export default function Equipments() {
           src={`/image/equipments/laptop.jpg`}
           width={1000}
           height={1000}
-          loading="lazy"
           alt="Lenovo LOQ 15 ARP9"
           className="mb-4 self-center rounded-lg border border-gray-700 shadow-lg brightness-75 contrast-90 dark:border-gray-600"
         />
@@ -101,7 +100,6 @@ export default function Equipments() {
           src={`/image/equipments/keyboard.jpg`}
           width={1000}
           height={1000}
-          loading="lazy"
           alt="Lenovo LOQ 15 ARP9"
           className="mb-4 self-center rounded-lg border border-gray-700 shadow-lg brightness-75 contrast-90 dark:border-gray-600"
         />
@@ -143,7 +141,6 @@ export default function Equipments() {
 
       <div className="flex w-2xl flex-col max-xl:w-xl max-lg:w-lg max-md:w-md max-sm:w-sm">
         <Image
-          loading="lazy"
           src={`/image/equipments/mouse.jpg`}
           width={1000}
           height={1000}
@@ -188,7 +185,6 @@ export default function Equipments() {
 
       <div className="flex w-2xl flex-col max-xl:w-xl max-lg:w-lg max-md:w-md max-sm:w-sm">
         <Image
-          loading="lazy"
           src={`/image/equipments/earphone.jpg`}
           width={1000}
           height={1000}
