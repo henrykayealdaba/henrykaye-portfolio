@@ -28,11 +28,12 @@ export async function generateMetadata({
 }
 
 export default async function JournalPage({ params }: { params: { slug: string } }) {
-  const slugs = await getAllJournalSlugs();
-  const exists = await slugs.some((slug) => slug.params.slug === params.slug);
+  const slugs = getAllJournalSlugs();
+  const slug = await params.slug;
+  const exists = slugs.some((s) => s.params.slug === slug);
   if (!exists) return notFound();
 
-  const journalData = await getJournalData(params.slug); // still sync
+  const journalData = await getJournalData(params.slug);
   if (!journalData) return notFound();
 
   return (
