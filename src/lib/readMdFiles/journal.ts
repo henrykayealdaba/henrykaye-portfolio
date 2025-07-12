@@ -7,7 +7,13 @@ import breaks from 'remark-breaks';
 
 const journalDir = path.join(process.cwd(), 'src', 'content', 'journal');
 
-const getAllJournalSlugs = () => {
+type JournalSlug = {
+  params: {
+    slug: string;
+  };
+};
+
+const getAllJournalSlugs = (): JournalSlug[] => {
   try {
     const filenames = fs.readdirSync(journalDir);
 
