@@ -11,9 +11,10 @@ import { Metadata } from 'next';
 export async function generateMetadata({
   params,
 }: {
-  params: { slug: string };
+  params: Promise<{ slug: string }>;
 }): Promise<Metadata> {
-  const journalData = await getJournalData(params.slug);
+  const { slug } = await params;
+  const journalData = await getJournalData(slug);
 
   if (!journalData) {
     return {
@@ -27,13 +28,13 @@ export async function generateMetadata({
   };
 }
 
-export default async function JournalPage({ params }: { params: { slug: string } }) {
+export default async function JournalPage({ params }: { params: Promise<{ slug: string }> }) {
   const slugs = getAllJournalSlugs();
-  const slug = params.slug;
+  const { slug } = await params;
   const exists = slugs.some((s) => s.params.slug === slug);
   if (!exists) return notFound();
 
-  const journalData = await getJournalData(params.slug);
+  const journalData = await getJournalData(slug);
   if (!journalData) return notFound();
 
   return (
