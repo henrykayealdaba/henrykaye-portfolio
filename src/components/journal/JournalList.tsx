@@ -2,7 +2,7 @@ import JournalListItem from '@/components/journal/JournalListItem';
 import { getAllJournalSlugs, getJournalData } from '@/lib/readMdFiles/journal';
 
 export default async function JournalList() {
-  const slugs = getAllJournalSlugs();
+  const slugs = await getAllJournalSlugs();
   const postsData = await Promise.all(slugs.map((slug) => getJournalData(slug.params.slug)));
   const posts = postsData.filter((post) => post !== null) as Array<{
     slug: string;
