@@ -107,69 +107,69 @@ export default function AboutTheAuthor() {
             <h1 className="text-xl uppercase opacity-50">Somewhere</h1>
             <ul className="space-y-2">
               <li className="flex space-x-2">
-                <Newspaper />
                 <a
                   href={'/file/Henry Kaye Aldaba Resume.pdf'}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="black-underline-hover text-lg"
+                  className="black-underline-hover flex gap-2 text-lg"
                 >
-                  Resume
+                  <Newspaper />
+                  <span>Resume</span>
                 </a>
               </li>
               <li className="flex space-x-2">
-                <Github />
                 <Link
                   target="_blank"
                   rel="noopener noreferrer"
                   href={'https://github.com/henrykayealdaba'}
-                  className="black-underline-hover text-lg"
+                  className="black-underline-hover flex gap-2 text-lg"
                 >
-                  Github
+                  <Github />
+                  <span>Github</span>
                 </Link>
               </li>
               <li className="flex space-x-2">
-                <Linkedin />
                 <Link
                   target="_blank"
                   rel="noopener noreferrer"
                   href={'https://linkedin.com/in/henrykayealdaba'}
-                  className="black-underline-hover text-lg"
+                  className="black-underline-hover flex gap-2 text-lg"
                 >
-                  LinkedIn
+                  <Linkedin />
+                  <span>LinkedIn</span>
                 </Link>
               </li>
               <li className="flex space-x-2">
-                <Mail />
                 <Link
                   target="_blank"
                   rel="noopener noreferrer"
                   href={'mailto:aldabahenrykaye@gmail.com'}
-                  className="black-underline-hover text-lg"
+                  className="black-underline-hover flex gap-2 text-lg"
                 >
-                  Email
+                  <Mail />
+                  <span>Email</span>
                 </Link>
               </li>
               <li className="flex space-x-2">
-                <Facebook />
                 <Link
                   target="_blank"
                   rel="noopener noreferrer"
                   href={'https://www.facebook.com/henry.aldaba.15/'}
-                  className="black-underline-hover text-lg"
+                  className="black-underline-hover flex gap-2 text-lg"
                 >
-                  Facebook
+                  <Facebook />
+                  <span>Facebook</span>
                 </Link>
               </li>
               <li className="flex space-x-2">
-                <Instagram />
                 <Link
                   target="_blank"
                   rel="noopener noreferrer"
                   href={'https://www.instagram.com/henryyyy15/'}
-                  className="black-underline-hover text-lg"
+                  className="black-underline-hover flex gap-2 text-lg"
                 >
-                  Instagram
+                  <Instagram />
+                  <span>Instagram</span>
                 </Link>
               </li>
             </ul>

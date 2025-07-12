@@ -2,6 +2,7 @@ import { Metadata } from 'next';
 import ComingSoon from '@/components/ComingSoon';
 import Hero from '@/components/journal/Hero';
 import AudioAndMarqueeAndResume from '@/components/journal/AudioAndMarqueeAndResume';
+import JournalList from '@/components/journal/JournalList';
 
 export const metadata: Metadata = {
   title: 'Journal',
@@ -15,6 +16,9 @@ export default function Journal() {
       </div>
       <div className="mb-6">
         <AudioAndMarqueeAndResume />
+      </div>
+      <div className="mb-6">
+        <JournalList />
       </div>
       <div className="mb-6">
         <ComingSoon />

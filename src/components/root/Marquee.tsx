@@ -9,7 +9,7 @@ export default function Marquee({
   content_two,
   timeScale = 1,
   fromX = '0%',
-  toX = '-50.7%',
+  toX = '-51%',
   duration = 30,
   comingSoon = false,
   spotifyLink,

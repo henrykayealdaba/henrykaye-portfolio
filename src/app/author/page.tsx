@@ -11,10 +11,6 @@ export const metadata: Metadata = {
 };
 
 export default function Author() {
-  // TODO: Change the Letter's placeholder text to the actual letter content of myself.
-  // TODO: Change the Bio component to include my actual biography.
-  // TODO: Add a transition out for Letter in TransitionLink for the author page.
-  // TODO: Add a "What I use" section to the author page.
   // TODO: Introduction, Place, University.
   // TODO: Add a knight pixel art (optional)
   return (
