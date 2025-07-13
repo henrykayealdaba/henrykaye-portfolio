@@ -69,7 +69,7 @@ export default async function JournalPage({ params }: { params: Promise<{ slug: 
         )}
       </div>
       <h1 className="text-6xl font-bold">{journalData.title}</h1>
-      <div className="flex w-sm flex-col text-base">
+      <div className="flex w-sm flex-col text-base max-md:px-8">
         <p className="text-base font-bold">{journalData.date}</p>
         <div dangerouslySetInnerHTML={{ __html: journalData.contentHtml }} />
         <Link href={'/journal'} className="black-underline-hover self-end">
