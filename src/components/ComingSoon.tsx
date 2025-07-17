@@ -1,4 +1,5 @@
 import Marquee from '@/components/root/Marquee';
+import Image from 'next/image';
 
 export default function ComingSoon() {
   return (
@@ -25,6 +26,13 @@ export default function ComingSoon() {
           duration={8}
         />
       </div>
+      <Image
+        src="/image/GIF/worker1.gif"
+        alt="Worker1 GIF"
+        width={100}
+        height={100}
+        className="absolute bottom-0 left-1/2 z-10 h-[10rem] w-[10rem] -translate-x-1/2"
+      />
     </div>
   );
 }
