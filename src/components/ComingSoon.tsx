@@ -36,7 +36,7 @@ export default function ComingSoon() {
           className={`absolute inset-0 bottom-1/4 rounded-full ${isDarkMode ? 'bg-yellow-500' : 'bg-orange-700'} opacity-80 blur-3xl`}
         />
         <Image
-          src="/image/GIF/worker1.gif"
+          src="/image/GIF/Worker1.gif"
           alt="Worker1 GIF"
           width={100}
           height={100}
