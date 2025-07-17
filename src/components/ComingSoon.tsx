@@ -1,7 +1,12 @@
+'use client';
 import Marquee from '@/components/root/Marquee';
 import Image from 'next/image';
+import { useTheme } from 'next-themes';
 
 export default function ComingSoon() {
+  const { theme, resolvedTheme } = useTheme();
+  const isDarkMode = theme === 'dark' || resolvedTheme === 'dark';
+
   return (
     <div className="relative flex h-[24rem] w-full items-center justify-center overflow-hidden">
       <div className="absolute rotate-8 max-md:rotate-12">
@@ -26,13 +31,18 @@ export default function ComingSoon() {
           duration={8}
         />
       </div>
-      <Image
-        src="/image/GIF/worker1.gif"
-        alt="Worker1 GIF"
-        width={100}
-        height={100}
-        className="absolute bottom-0 left-1/2 z-10 h-[10rem] w-[10rem] -translate-x-1/2"
-      />
+      <div className="relative bottom-0 z-10 mt-20 flex h-40 w-40 items-center justify-center select-none">
+        <div
+          className={`absolute inset-0 bottom-1/4 rounded-full ${isDarkMode ? 'bg-yellow-500' : 'bg-orange-700'} opacity-80 blur-3xl`}
+        />
+        <Image
+          src="/image/GIF/worker1.gif"
+          alt="Worker1 GIF"
+          width={100}
+          height={100}
+          className="pointer-events-none absolute left-1/2 z-10 h-[10rem] w-[10rem] -translate-x-1/2"
+        />
+      </div>
     </div>
   );
 }
