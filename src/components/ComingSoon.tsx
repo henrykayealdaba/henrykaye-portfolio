@@ -40,7 +40,7 @@ export default function ComingSoon() {
           alt="Worker1 GIF"
           width={100}
           height={100}
-          className="pointer-events-none absolute left-1/2 z-10 h-[4.5rem] w-[4.5rem] -translate-x-1/2"
+          className="pointer-events-none absolute left-1/2 z-10 h-[4.8rem] w-[4.8rem] -translate-x-1/2"
         />
       </div>
       <div className="relative bottom-0 z-10 mt-20 flex h-40 w-40 items-center justify-center select-none">
