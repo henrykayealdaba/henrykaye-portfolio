@@ -31,16 +31,28 @@ export default function ComingSoon() {
           duration={8}
         />
       </div>
-      <div className="relative bottom-0 z-10 mt-20 flex h-40 w-40 items-center justify-center select-none">
+      <div className="relative -bottom-11 z-10 mt-20 flex h-40 w-40 items-center justify-center select-none">
         <div
-          className={`absolute inset-0 bottom-1/4 rounded-full ${isDarkMode ? 'bg-yellow-500' : 'bg-orange-700'} opacity-80 blur-3xl`}
+          className={`absolute inset-0 -bottom-0 rounded-full ${isDarkMode ? 'bg-yellow-500' : 'bg-orange-700'} opacity-30 blur-xl`}
         />
         <Image
           src="/image/GIF/Worker1.gif"
           alt="Worker1 GIF"
           width={100}
           height={100}
-          className="pointer-events-none absolute left-1/2 z-10 h-[10rem] w-[10rem] -translate-x-1/2"
+          className="pointer-events-none absolute left-1/2 z-10 h-[4.5rem] w-[4.5rem] -translate-x-1/2"
+        />
+      </div>
+      <div className="relative bottom-0 z-10 mt-20 flex h-40 w-40 items-center justify-center select-none">
+        <div
+          className={`absolute inset-0 -bottom-10 rounded-full ${isDarkMode ? 'bg-yellow-500' : 'bg-orange-700'} opacity-30 blur-xl`}
+        />
+        <Image
+          src="/image/GIF/Worker2.gif"
+          alt="Worker2 GIF"
+          width={100}
+          height={100}
+          className="pointer-events-none absolute left-1/2 z-10 w-[30rem] -translate-x-1/2"
         />
       </div>
     </div>
