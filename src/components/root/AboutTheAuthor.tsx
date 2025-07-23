@@ -12,6 +12,7 @@ import {
   ArrowRight,
   Newspaper,
   PartyPopper,
+  Twitter,
 } from 'lucide-react';
 import { useTheme } from 'next-themes';
 import Image from 'next/image';
@@ -170,6 +171,17 @@ export default function AboutTheAuthor() {
                 >
                   <Instagram />
                   <span>Instagram</span>
+                </Link>
+              </li>
+              <li className="flex space-x-2">
+                <Link
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  href={'https://x.com/henriyyyy'}
+                  className="black-underline-hover flex gap-2 text-lg"
+                >
+                  <Twitter />
+                  <span>Twitter</span>
                 </Link>
               </li>
             </ul>
