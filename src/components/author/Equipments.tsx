@@ -51,7 +51,7 @@ export default function Equipments() {
         What I Use
       </h1>
 
-      <div className="flex w-2xl flex-col max-xl:w-xl max-lg:w-lg max-md:w-md max-sm:w-sm">
+      <div className="flex w-2xl flex-col max-xl:w-xl max-lg:w-lg max-md:w-md max-md:px-8 max-sm:w-sm">
         <Image
           src={`/image/equipments/laptop.jpg`}
           width={1000}
@@ -95,7 +95,7 @@ export default function Equipments() {
         </ul>
       </div>
 
-      <div className="flex w-2xl flex-col max-xl:w-xl max-lg:w-lg max-md:w-md max-sm:w-sm">
+      <div className="flex w-2xl flex-col max-xl:w-xl max-lg:w-lg max-md:w-md max-md:px-8 max-sm:w-sm">
         <Image
           src={`/image/equipments/keyboard.jpg`}
           width={1000}
@@ -139,7 +139,7 @@ export default function Equipments() {
         </ul>
       </div>
 
-      <div className="flex w-2xl flex-col max-xl:w-xl max-lg:w-lg max-md:w-md max-sm:w-sm">
+      <div className="flex w-2xl flex-col max-xl:w-xl max-lg:w-lg max-md:w-md max-md:px-8 max-sm:w-sm">
         <Image
           src={`/image/equipments/mouse.jpg`}
           width={1000}
@@ -183,7 +183,7 @@ export default function Equipments() {
         </ul>
       </div>
 
-      <div className="flex w-2xl flex-col max-xl:w-xl max-lg:w-lg max-md:w-md max-sm:w-sm">
+      <div className="flex w-2xl flex-col max-xl:w-xl max-lg:w-lg max-md:w-md max-md:px-8 max-sm:w-sm">
         <Image
           src={`/image/equipments/earphone.jpg`}
           width={1000}
