@@ -3,7 +3,7 @@ import Marquee from '@/components/root/Marquee';
 import Image from 'next/image';
 import { useTheme } from 'next-themes';
 
-export default function ComingSoon() {
+export default function ComingSoon({ worker1, worker2 }: { worker1?: boolean; worker2?: boolean }) {
   const { theme, resolvedTheme } = useTheme();
   const isDarkMode = theme === 'dark' || resolvedTheme === 'dark';
 
@@ -31,30 +31,35 @@ export default function ComingSoon() {
           duration={8}
         />
       </div>
-      <div className="relative -bottom-11 z-10 mt-20 flex h-40 w-40 items-center justify-center select-none">
-        <div
-          className={`absolute inset-0 -bottom-0 rounded-full ${isDarkMode ? 'bg-yellow-500' : 'bg-orange-700'} opacity-30 blur-xl`}
-        />
-        <Image
-          src="/image/GIF/Worker1.gif"
-          alt="Worker1 GIF"
-          width={100}
-          height={100}
-          className="pointer-events-none absolute left-1/2 z-10 h-[4.8rem] w-[4.8rem] -translate-x-1/2"
-        />
-      </div>
-      <div className="relative bottom-0 z-10 mt-20 flex h-40 w-40 items-center justify-center select-none">
-        <div
-          className={`absolute inset-0 -bottom-10 rounded-full ${isDarkMode ? 'bg-yellow-500' : 'bg-orange-700'} opacity-30 blur-xl`}
-        />
-        <Image
-          src="/image/GIF/Worker2.gif"
-          alt="Worker2 GIF"
-          width={100}
-          height={100}
-          className="pointer-events-none absolute left-1/2 z-10 w-[30rem] -translate-x-1/2"
-        />
-      </div>
+      {worker1 && (
+        <div className="relative -bottom-11 z-10 mt-20 flex h-40 w-40 items-center justify-center select-none">
+          <div
+            className={`absolute inset-0 -bottom-0 rounded-full ${isDarkMode ? 'bg-yellow-500' : 'bg-orange-700'} opacity-30 blur-xl`}
+          />
+
+          <Image
+            src="/image/GIF/Worker1.gif"
+            alt="Worker1 GIF"
+            width={100}
+            height={100}
+            className="pointer-events-none absolute left-1/2 z-10 h-[4.8rem] w-[4.8rem] -translate-x-1/2"
+          />
+        </div>
+      )}
+      {worker2 && (
+        <div className="relative bottom-0 z-10 mt-20 flex h-40 w-40 items-center justify-center select-none">
+          <div
+            className={`absolute inset-0 -bottom-10 rounded-full ${isDarkMode ? 'bg-yellow-500' : 'bg-orange-700'} opacity-30 blur-xl`}
+          />
+          <Image
+            src="/image/GIF/Worker2.gif"
+            alt="Worker2 GIF"
+            width={100}
+            height={100}
+            className="pointer-events-none absolute left-1/2 z-10 w-[30rem] -translate-x-1/2"
+          />
+        </div>
+      )}
     </div>
   );
 }

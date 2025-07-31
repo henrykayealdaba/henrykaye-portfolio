@@ -35,8 +35,8 @@ export default function Author() {
         <Equipments />
       </div>
       <div className="mb-6">
-        <ComingSoon />
-        <ComingSoon />
+        <ComingSoon worker1 />
+        <ComingSoon worker2 />
       </div>
     </main>
   );

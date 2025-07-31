@@ -21,8 +21,8 @@ export default function Journal() {
         <JournalList />
       </div>
       <div className="mb-6">
-        <ComingSoon />
-        <ComingSoon />
+        <ComingSoon worker1 />
+        <ComingSoon worker2 />
       </div>
     </main>
   );
