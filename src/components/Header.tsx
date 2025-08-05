@@ -18,6 +18,7 @@ export default function Header() {
   const dropdownRef = useRef<HTMLDivElement>(null);
   const buttonRef = useRef<HTMLButtonElement>(null);
   const containerRef = useRef<HTMLDivElement>(null);
+  const isInIframe = typeof window !== 'undefined' && window.self !== window.top;
 
   // ? Create an array of refs for the links
 
@@ -207,15 +208,17 @@ export default function Header() {
             Journal
           </button>
         </TransitionLink>
-        <TransitionLink to="/3d">
-          <button
-            className={`underline-hover cursor-pointer font-semibold transition-colors duration-200 ease-in-out select-none hover:text-[var(--light-header-foreground-hover)] dark:hover:text-[var(--dark-header-foreground-hover)] ${pathname === '/3d' && 'text-[var(--light-header-foreground)] dark:text-[var(--dark-header-foreground)]'}`}
-            ref={threeDRef}
-            draggable={false}
-          >
-            3D
-          </button>
-        </TransitionLink>
+        {!isInIframe && (
+          <TransitionLink to="/3d">
+            <button
+              className={`underline-hover cursor-pointer font-semibold transition-colors duration-200 ease-in-out select-none hover:text-[var(--light-header-foreground-hover)] dark:hover:text-[var(--dark-header-foreground-hover)] ${pathname === '/3d' && 'text-[var(--light-header-foreground)] dark:text-[var(--dark-header-foreground)]'}`}
+              ref={threeDRef}
+              draggable={false}
+            >
+              3D
+            </button>
+          </TransitionLink>
+        )}
       </div>
       <div className="flex items-center gap-2">
         <DarkModeButton />
@@ -259,14 +262,16 @@ export default function Header() {
                 Journal
               </button>
             </TransitionLink>
-            <TransitionLink to="/3d">
-              <button
-                onClick={() => setIsOpen(false)}
-                className={`underline-hover block w-full cursor-pointer pt-2 text-start hover:text-[var(--light-header-foreground-hover)] dark:hover:text-[var(--dark-header-foreground-hover)] ${pathname === '/3d' && 'text-[var(--light-header-foreground)] dark:text-[var(--dark-header-foreground)]'}`}
-              >
-                3D
-              </button>
-            </TransitionLink>
+            {!isInIframe && (
+              <TransitionLink to="/3d">
+                <button
+                  onClick={() => setIsOpen(false)}
+                  className={`underline-hover block w-full cursor-pointer pt-2 text-start hover:text-[var(--light-header-foreground-hover)] dark:hover:text-[var(--dark-header-foreground-hover)] ${pathname === '/3d' && 'text-[var(--light-header-foreground)] dark:text-[var(--dark-header-foreground)]'}`}
+                >
+                  3D
+                </button>
+              </TransitionLink>
+            )}
           </div>
         </div>
       </div>

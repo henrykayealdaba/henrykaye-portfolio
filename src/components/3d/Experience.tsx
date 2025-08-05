@@ -25,7 +25,7 @@ export default function Experience() {
             title="embed"
             width={840}
             height={460}
-            src="https://henrykaye-portfolio-git-main-henrykayealdabas-projects.vercel.app/"
+            src="https://henrykaye.vercel.app"
             frameBorder={0}
           />
         </Html>
