@@ -1,5 +1,3 @@
-import Header from '@/components/Header';
-import Footer from '@/components/Footer';
 import type { Metadata } from 'next';
 import {
   Inter,
@@ -73,10 +71,8 @@ export default function RootLayout({
       <body
         className={`${merriweather.variable} ${edu.variable} ${anton.variable} ${mPlusRounded.variable} ${inter.variable} ${cinzel.variable} ${playfair.variable} w-screen overflow-x-hidden bg-[var(--light-background)] text-[var(--light-foreground)] antialiased transition-all duration-150 ease-in-out dark:bg-[var(--dark-background)] dark:text-[var(--dark-foreground)]`}
       >
-        <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
-          <Header />
-          <div className="mt-16">{children}</div>
-          <Footer />
+        <ThemeProvider attribute="class" defaultTheme="light" enableSystem>
+          {children}
         </ThemeProvider>
       </body>
     </html>
