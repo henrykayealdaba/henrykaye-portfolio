@@ -22,10 +22,11 @@ export default function Header() {
 
   // ? Create an array of refs for the links
 
-  const refs: React.RefObject<HTMLElement>[] = useMemo(
-    () => [projectsRef, authorRef, journalRef, threeDRef] as React.RefObject<HTMLElement>[],
-    []
-  );
+  const refs: React.RefObject<HTMLElement | null>[] = useMemo(() => {
+    const list = [projectsRef, authorRef, journalRef];
+    if (!isInIframe) list.push(threeDRef);
+    return list;
+  }, [isInIframe]);
 
   // ? Animate the Kaye word on hover
   useGSAP(

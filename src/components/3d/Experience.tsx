@@ -19,7 +19,7 @@ export default function Experience() {
           receiveShadow
           occlude="blending"
           transform
-          position={[0.16, 8.5, -10.1]}
+          position={[0.16, 8.5, -10.2]}
         >
           <iframe
             title="embed"
