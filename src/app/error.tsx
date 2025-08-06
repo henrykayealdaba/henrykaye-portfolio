@@ -24,13 +24,13 @@ export default function Error({ reset }: { reset: () => void }) {
             <Cat className="transition-transform duration-300 hover:rotate-360 hover:stroke-sky-400" />
           </Link>
         </p>
-        <button
-          onClick={() => reset()}
+        <Link
+          href="/"
           className="row black-underline-hover peer inline-flex items-center gap-2 leading-relaxed text-sky-400"
         >
           <ArrowLeft />
           Go Home
-        </button>
+        </Link>
       </div>
     </div>
   );
