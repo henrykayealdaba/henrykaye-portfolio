@@ -6,6 +6,7 @@ import gsap from 'gsap';
 import { useGSAP } from '@gsap/react';
 import { Menu } from 'lucide-react';
 import TransitionLink from '@/lib/animations/TransitionLink';
+import Link from 'next/link';
 
 export default function Header() {
   // ? Create refs for the elements I want to animate
@@ -210,7 +211,7 @@ export default function Header() {
           </button>
         </TransitionLink>
         {!isInIframe && (
-          <TransitionLink to="/3d">
+          <Link href="/3d">
             <button
               className={`underline-hover cursor-pointer font-semibold transition-colors duration-200 ease-in-out select-none hover:text-[var(--light-header-foreground-hover)] dark:hover:text-[var(--dark-header-foreground-hover)] ${pathname === '/3d' && 'text-[var(--light-header-foreground)] dark:text-[var(--dark-header-foreground)]'}`}
               ref={threeDRef}
@@ -218,7 +219,7 @@ export default function Header() {
             >
               3D
             </button>
-          </TransitionLink>
+          </Link>
         )}
       </div>
       <div className="flex items-center gap-2">
@@ -264,14 +265,14 @@ export default function Header() {
               </button>
             </TransitionLink>
             {!isInIframe && (
-              <TransitionLink to="/3d">
+              <Link href="/3d">
                 <button
                   onClick={() => setIsOpen(false)}
                   className={`underline-hover block w-full cursor-pointer pt-2 text-start hover:text-[var(--light-header-foreground-hover)] dark:hover:text-[var(--dark-header-foreground-hover)] ${pathname === '/3d' && 'text-[var(--light-header-foreground)] dark:text-[var(--dark-header-foreground)]'}`}
                 >
                   3D
                 </button>
-              </TransitionLink>
+              </Link>
             )}
           </div>
         </div>

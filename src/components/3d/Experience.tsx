@@ -5,8 +5,8 @@ import Link from 'next/link';
 export default function Experience() {
   return (
     <group position={[0, -7, -10]}>
-      <Laptop position={[0, 0, 0]} scale={[11, 11, 11]} />
-      <Html style={{ userSelect: 'none' }} transform position={[0.16, 8.5, -10]}>
+      <Laptop position={[-0.1, 2.1, -6]} scale={[11, 11, 11]} />
+      <Html style={{ userSelect: 'none' }} occlude transform position={[0.16, 8.5, -10]}>
         <iframe
           title="embed"
           width={840}
