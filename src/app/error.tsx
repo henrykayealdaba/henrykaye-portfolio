@@ -3,7 +3,7 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { ArrowLeft, Cat } from 'lucide-react';
 
-export default function Error({ reset }: { reset: () => void }) {
+export default function Error() {
   return (
     <div className="flex h-[82.9vh] items-center justify-center space-y-4 p-4 max-md:flex-col">
       <Link href={'/'} className="transition-transform duration-300 hover:scale-110">
