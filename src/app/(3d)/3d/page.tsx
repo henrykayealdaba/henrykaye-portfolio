@@ -29,11 +29,11 @@ export default function ThreeDimension() {
         className="overflow-hidden"
       >
         <Canvas
-          camera={{ position: [0, 0, 15], fov: 50 }}
+          camera={{ position: [0, 0, 0], fov: 50 }}
           className="pointer-events-none touch-none overflow-hidden select-none"
         >
           <CameraSettings isMobile={isMobile} />
-          <ambientLight intensity={1} />
+          <ambientLight intensity={5} />
           <Suspense fallback={null}>
             <Experience />
           </Suspense>

@@ -5,16 +5,21 @@ export default function CameraSettings({ isMobile }: { isMobile: boolean }) {
   const controlsRef = useRef<CameraControls>(null);
 
   useEffect(() => {
-    controlsRef.current?.setLookAt(0, 0, isMobile ? 50 : 15, 0, 0, 0, true);
+    if (controlsRef.current) {
+      controlsRef.current.polarAngle = Math.PI / 2;
+      controlsRef.current.smoothTime = 2;
+      controlsRef.current.moveTo(0, 2, -15);
+      controlsRef.current.setLookAt(0, 0, isMobile ? 60 : 25, 0, 1, 0, true);
+    }
   }, [isMobile]);
 
   return (
     <CameraControls
       ref={controlsRef}
       makeDefault
-      minDistance={15}
-      maxDistance={15}
-      minPolarAngle={Math.PI / 2}
+      minDistance={isMobile ? 60 : 25}
+      maxDistance={isMobile ? 60 : 25}
+      minPolarAngle={Math.PI / 2.5}
       maxPolarAngle={Math.PI / 2}
       minAzimuthAngle={-Math.PI / 5}
       maxAzimuthAngle={Math.PI / 5}
