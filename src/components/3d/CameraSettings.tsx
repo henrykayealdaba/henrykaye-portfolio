@@ -8,8 +8,13 @@ export default function CameraSettings({ isMobile }: { isMobile: boolean }) {
     if (controlsRef.current) {
       controlsRef.current.polarAngle = Math.PI / 2;
       controlsRef.current.smoothTime = 2;
-      controlsRef.current.moveTo(0, 2, -15);
-      controlsRef.current.setLookAt(0, 0, isMobile ? 60 : 25, 0, 1, 0, true);
+      controlsRef.current.moveTo(0, 4.5, -9);
+      const timeout = setTimeout(() => {
+        controlsRef.current?.setLookAt(0, 0, isMobile ? 60 : 25, 0, 1, 0, true);
+      }, 2000);
+      return () => {
+        clearTimeout(timeout);
+      };
     }
   }, [isMobile]);
 
