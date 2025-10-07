@@ -26,10 +26,11 @@ export default function Bio() {
         gsap.from(ref.current, {
           scrollTrigger: {
             trigger: ref.current,
-            start: 'top 80%',
+            start: 'top 90%',
             end: 'bottom 20%',
             toggleActions: 'play reset resume reset',
             scrub: 1,
+            markers: true,
           },
           opacity: 0,
           y: 50,
@@ -149,14 +150,14 @@ export default function Bio() {
               <span className="size-3 shrink-0 rounded-full bg-[var(--color-orange)]"></span>
 
               <div className="-mt-2">
-                <time className="text-xs/none font-medium">20XX</time>
+                <time className="text-xs/none font-medium">2025</time>
 
-                <h3 className="text-lg font-bold">SOON</h3>
+                <h3 className="text-lg font-bold">College Graduate</h3>
 
                 <p className="mt-0.5 text-sm">
-                  I will soon graduate from college with a degree in Bachelor of Science in
-                  Information Technology, marking a significant milestone in my academic journey and
-                  I am aiming for Magna Cum Laude honors.
+                  I am a college graduate with a degree in Bachelor of Science in Information
+                  Technology, marking a significant milestone in my academic journey and I am a
+                  candidate for Magna Cum Laude honors.
                 </p>
               </div>
             </div>
