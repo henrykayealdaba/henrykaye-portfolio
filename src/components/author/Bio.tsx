@@ -30,7 +30,6 @@ export default function Bio() {
             end: 'bottom 20%',
             toggleActions: 'play reset resume reset',
             scrub: 1,
-            markers: true,
           },
           opacity: 0,
           y: 50,
