@@ -78,9 +78,9 @@ export default function AboutTheAuthor() {
             learning new things.
           </p>
           <p className="max-md:text-md px-2 text-2xl leading-tight text-pretty max-xl:text-xl max-lg:text-lg max-md:w-md max-md:px-8 max-sm:w-sm max-sm:text-sm">
-            <span className="flex items-center text-2xl italic opacity-50">NOW</span>
-            This year I will graduate from college with a degree in Information Technology. Wish me
-            luck on my journey to becoming a professional developer!{' '}
+            <span className="flex items-center text-2xl italic opacity-50">2025</span>I graduated
+            from college with a degree in Information Technology. Wish me luck on my journey to
+            becoming a professional developer!{' '}
             <PartyPopper className="inline font-bold dark:stroke-[var(--color-orange)]" />
           </p>
           <Link
