@@ -9,7 +9,7 @@ export default function SocialPlatforms() {
         <ul className="space-y-2">
           <li className="flex space-x-2">
             <a
-              href={'/file/Henry Kaye Aldaba Resume.pdf'}
+              href={'/file/Henry-Kaye-Aldaba-Resume.pdf'}
               target="_blank"
               rel="noopener noreferrer"
               className="black-underline-hover flex gap-2 text-lg"
