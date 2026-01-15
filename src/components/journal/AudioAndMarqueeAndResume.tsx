@@ -2,10 +2,12 @@
 import Marquee from '@/components/root/Marquee';
 import AudioPlayer from '@/components/root/AudioPlayer';
 import Weather from '@/components/root/OpenWeatherMap';
-import { useEffect, useRef, useState } from 'react';
+import { useRef, useState } from 'react';
 import gsap from 'gsap';
+import { useGSAP } from '@gsap/react';
 
 export default function AudioAndMarqueeAndResume() {
+  const containerRef = useRef<HTMLDivElement>(null);
   const audioPlayerRef = useRef<HTMLDivElement>(null);
   const marqueeNavRef = useRef<HTMLDivElement>(null);
   const tl = gsap.timeline();
@@ -19,33 +21,36 @@ export default function AudioAndMarqueeAndResume() {
 
   // ? Animate the audio player and marquee nav on mount
 
-  useEffect(() => {
-    if (hasAnimated.current) return;
-    hasAnimated.current = true;
+  useGSAP(
+    () => {
+      if (hasAnimated.current) return;
+      hasAnimated.current = true;
 
-    if (audioPlayerRef.current && marqueeNavRef.current) {
-      tl.fromTo(
-        audioPlayerRef.current,
-        { opacity: 0, x: -50 },
-        {
-          opacity: 1,
-          x: 0,
-          duration: 0.5,
-          ease: 'elastic.out(1, 0.3)',
-          delay: 1,
-        }
-      ).fromTo(
-        marqueeNavRef.current,
-        { opacity: 0, x: 50 },
-        {
-          opacity: 1,
-          x: 0,
-          duration: 0.5,
-          ease: 'elastic.out(1, 0.3)',
-        }
-      );
-    }
-  }, []);
+      if (audioPlayerRef.current && marqueeNavRef.current) {
+        tl.fromTo(
+          audioPlayerRef.current,
+          { opacity: 0, x: -50 },
+          {
+            opacity: 1,
+            x: 0,
+            duration: 0.5,
+            ease: 'elastic.out(1, 0.3)',
+            delay: 1,
+          }
+        ).fromTo(
+          marqueeNavRef.current,
+          { opacity: 0, x: 50 },
+          {
+            opacity: 1,
+            x: 0,
+            duration: 0.5,
+            ease: 'elastic.out(1, 0.3)',
+          }
+        );
+      }
+    },
+    { scope: containerRef }
+  );
 
   // ? Get today's date and format it
   const today = new Date();
@@ -62,7 +67,10 @@ export default function AudioAndMarqueeAndResume() {
           setWeather(data as WeatherType);
         }}
       />
-      <div className="flex w-screen flex-row-reverse overflow-hidden p-2 max-md:flex-col">
+      <div
+        ref={containerRef}
+        className="flex w-screen flex-row-reverse overflow-hidden p-2 max-md:flex-col"
+      >
         <div
           ref={audioPlayerRef}
           className="journal-transition-right-out flex w-full items-center justify-center"
