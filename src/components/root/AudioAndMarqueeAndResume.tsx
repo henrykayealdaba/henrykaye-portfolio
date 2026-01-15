@@ -84,7 +84,7 @@ export default function AudioAndMarqueeAndResume() {
           <h1 className="max-md:text-md max-md:text-md max-w-xl p-2 font-(family-name:--font-mono) text-2xl max-xl:text-xl max-lg:text-lg max-md:text-center max-sm:text-sm lg:mr-72 lg:self-end lg:text-right">
             The personal site and portfolio of nowhere in particular web developer{' '}
             <a
-              href={'/file/Henry Kaye Aldaba Resume.pdf'}
+              href={'/file/Henry-Kaye-Aldaba-Resume.pdf'}
               target="_blank"
               rel="noopener noreferrer"
               className="cursor-pointer hover:underline"
