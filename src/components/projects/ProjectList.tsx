@@ -210,13 +210,13 @@ export default function ProjectList() {
         ref={portfolioRef}
         className="row-container space-x-8 text-center text-[clamp(2rem,6vw,10rem)] max-md:space-x-4 max-md:text-start"
       >
-        <span className="opacity-20 blur-xs select-none has-[+.row:hover]:blur-none max-md:hidden">
+        <span className="opacity-20 blur-xs select-none has-[~.row:hover]:blur-none max-md:hidden">
           Portfolio
         </span>
-        <span className="opacity-20 blur-xs select-none has-[+.row:hover]:blur-none max-md:hidden">
+        <span className="opacity-20 blur-xs select-none has-[~.row:hover]:blur-none max-md:hidden">
           Portfolio
         </span>
-        <span className="opacity-20 blur-xs select-none has-[+.row:hover]:blur-none max-md:hidden">
+        <span className="opacity-20 blur-xs select-none has-[~.row:hover]:blur-none max-md:hidden">
           Portfolio
         </span>
         <span className="opacity-20 blur-xs select-none has-[+.row:hover]:blur-none max-md:hidden">
