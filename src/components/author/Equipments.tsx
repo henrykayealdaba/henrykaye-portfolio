@@ -191,7 +191,7 @@ export default function Equipments() {
           alt="Lenovo LOQ 15 ARP9"
           className="mb-4 self-center rounded-lg border border-gray-700 shadow-lg brightness-75 contrast-90 dark:border-gray-600"
         />
-        <h2 className="text-4xl font-bold">Baseus Bowie MA10</h2>
+        <h2 className="text-4xl font-bold">Anker Soundcore R50i</h2>
         <p className="mb-4 border-b pb-4 text-xl">Wireless Earphone</p>
         <p>
           What could I say? I love listening to music while I work, and this is the perfect wireless
@@ -204,10 +204,12 @@ export default function Equipments() {
             <Link
               target="_blank"
               rel="noopener noreferrer"
-              href={'https://www.amazon.com/Baseus-Bowie-MA10-Wireless-Earbuds/dp/B0C99BNKTH'}
+              href={
+                'https://www.amazon.com/Soundcore-Cancelling-Powerful-Playtime-Bluetooth/dp/B0CRTR3PMF?crid=2DP78GSHNTWOT&dib=eyJ2IjoiMSJ9.tdH2Z2EWVonr4t127obcccrwTtW1DzDWJju2T0vYHDYU6uTQGTwFINMxTKNDmCM_UrBho1UzoqDT-zZ_XEu25VVPiS7gAFD-YsCMCLQ2FZAPc0ecJCzqXDd3KsmkwY0Se1A-R9nR9L0ZJaMtlpOtKAUsejUrlDSp00HyG__If_226tNPhEO1N6dpQURZ2BbE8HtoCyrNxcZffTD4KlRJR7yGaDl3K_e-SVJSvteuDxE.rdBHY1p7g79A3lCcMsjztI8DYCINZwlScuBIDSGBsB8&dib_tag=se&keywords=soundcore%2Br50i&qid=1768453499&sprefix=soundcore%2Br50%2Caps%2C342&sr=8-1&th=1'
+              }
               className="black-underline-hover"
             >
-              Baseus Bowie MA10 - Amazon
+              Anker Soundcore R50i - Amazon
             </Link>
           </li>
           <li>
@@ -215,11 +217,11 @@ export default function Equipments() {
               target="_blank"
               rel="noopener noreferrer"
               href={
-                'https://shopee.ph/Baseus-Bowie-MA10-ANC-Wireless-Earphone-Bluetooth-5.3-48dB-Noise-Cancelling-140h-Playtime-IPX6-Waterproof-i.131196305.16995837957'
+                'https://shopee.ph/%E3%80%90TWS-Stand%E3%80%91Soundcore-by-Anker-R50i-NC-Earbuds-Adaptive-ANC-Bluetooth-5.4-TWS-42dB-Low-Latency-Headphone-45H-Play-Time-Headsets-10mm-Drivers-Earphone-TWS-i.1067124429.26154704738?extraParams=%7B%22display_model_id%22%3A187686285139%7D'
               }
               className="black-underline-hover"
             >
-              Baseus Bowie MA10 - Shopee
+              Anker Soundcore R50i - Shopee
             </Link>
           </li>
         </ul>
