@@ -23,7 +23,7 @@ export default function Weather({
 
       onWeatherReady(data);
     });
-  }, []);
+  }, [onWeatherReady]);
 
   return null;
 }
