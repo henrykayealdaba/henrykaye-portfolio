@@ -13,6 +13,7 @@ export default function ProjectList() {
   const tatakSiklistaRef = useRef<HTMLDivElement>(null);
   const netflixRef = useRef<HTMLDivElement>(null);
   const newtubeRef = useRef<HTMLDivElement>(null);
+  const simpleBlogRef = useRef<HTMLDivElement>(null);
   const comingSoonRef = useRef<HTMLDivElement>(null);
 
   useGSAP(
@@ -134,6 +135,20 @@ export default function ProjectList() {
             '<'
           )
           .fromTo(
+            simpleBlogRef.current,
+            {
+              x: '-85%',
+              duration: 1,
+              ease: 'power2.out',
+            },
+            {
+              x: '-25%',
+              duration: 1,
+              ease: 'power2.out',
+            },
+            '<'
+          )
+          .fromTo(
             comingSoonRef.current,
             {
               x: '-180%',
@@ -157,6 +172,7 @@ export default function ProjectList() {
               tatakSiklistaRef,
               netflixRef,
               newtubeRef,
+              simpleBlogRef,
               comingSoonRef,
             ].forEach((ref) => {
               if (ref.current) {
@@ -463,6 +479,50 @@ export default function ProjectList() {
         </span>
         <span className="hidden opacity-20 blur-xs select-none peer-hover:blur-none max-md:inline">
           NewTube
+        </span>
+      </div>
+
+      <div
+        ref={simpleBlogRef}
+        className="row-container space-x-8 text-center text-[clamp(2rem,6vw,10rem)] max-md:space-x-4 max-md:text-start"
+      >
+        <span className="opacity-20 blur-xs select-none has-[~.row:hover]:blur-none max-md:hidden">
+          SimpleBlog
+        </span>
+        <span className="opacity-20 blur-xs select-none has-[+.row:hover]:blur-none max-md:hidden">
+          SimpleBlog
+        </span>
+        <Link
+          href="https://simple-blog-react-redux-supabase.vercel.app/"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="row peer cursor-pointer"
+          onMouseEnter={(e) => {
+            const line = e.currentTarget.querySelector('.line');
+            if (line) {
+              gsap.killTweensOf(line);
+              gsap.to(line, { width: '100px', duration: 0.4, ease: 'bounce.out' });
+            }
+          }}
+          onMouseLeave={(e) => {
+            const line = e.currentTarget.querySelector('.line');
+            if (line) {
+              gsap.killTweensOf(line);
+              gsap.to(line, { width: '0%', duration: 0.8, ease: 'bounce.out' });
+            }
+          }}
+        >
+          <span>Simple</span>
+          <span className="line inline-block h-[4px] w-0 bg-[var(--dark-foreground)] align-middle" />
+          <span>Blog</span>
+        </Link>
+        <span className="opacity-20 blur-xs select-none peer-hover:blur-none">SimpleBlog</span>
+        <span className="opacity-20 blur-xs select-none peer-hover:blur-none">SimpleBlog</span>
+        <span className="hidden opacity-20 blur-xs select-none peer-hover:blur-none max-md:inline">
+          SimpleBlog
+        </span>
+        <span className="hidden opacity-20 blur-xs select-none peer-hover:blur-none max-md:inline">
+          SimpleBlog
         </span>
       </div>
 
