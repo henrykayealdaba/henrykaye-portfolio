@@ -81,17 +81,16 @@ export default function AudioAndMarqueeAndResume() {
             content_two={`🔥 This portfolio was created on May 31, 2025.  My Spotify playlist is available here: `}
             spotifyLink="https://open.spotify.com/playlist/5uz73dZIba1HJtbhyjzGY6?si=K_g8DKLLRLGgxUF97BjhoQ"
           />
-          <h1 className="max-md:text-md max-md:text-md max-w-xl p-2 font-(family-name:--font-mono) text-2xl max-xl:text-xl max-lg:text-lg max-md:text-center max-sm:text-sm lg:mr-72 lg:self-end lg:text-right">
+          <h1 className="max-md:text-md max-md:text-md max-w-2xl p-2 font-(family-name:--font-mono) text-2xl max-xl:text-xl max-lg:text-lg max-md:text-center max-sm:text-sm lg:mr-72 lg:self-end lg:text-right">
             The personal site and portfolio of nowhere in particular web developer{' '}
             <a
               href={'/file/Henry-Kaye-Aldaba-Resume.pdf'}
               target="_blank"
               rel="noopener noreferrer"
-              className="cursor-pointer hover:underline"
+              className="cursor-pointer text-blue-400 hover:underline"
             >
-              Henry Kaye
+              Henry Kaye (Resume)
             </a>
-            .
           </h1>
         </div>
       </div>
